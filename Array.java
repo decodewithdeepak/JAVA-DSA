@@ -1,5 +1,4 @@
 // Notes 12 : https://drive.google.com/file/d/1x9TPeFrH5Nwvz8sqP_UrwKWhsvTwXaSN/view
-// Notes 13 : https://drive.google.com/file/d/1uKhLKd06R7jxFN_XZV7en0VvQaC8QM17/view
 
 // Array : A collection of similar type of elements stored in contiguous memory locations.
 // Array follows zero based indexing.
@@ -57,9 +56,11 @@ public class Array {
 
 
         // 1D array declaration and initialization using Scanner class
+        // Taking array input from the user
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of array : ");
+        System.out.print("\nEnter the size of array : ");
         int n = sc.nextInt();
+
         int[] arr3 = new int[n];
 
         System.out.println("Enter the elements in array: ");
@@ -67,14 +68,15 @@ public class Array {
             arr3[i] = sc.nextInt();
         }
 
-        System.out.println("\nElements in the array are: ");
+        System.out.println("Elements in the array are: ");
         for (int i = 0; i < n; i++) {
-            System.out.println(arr3[i]);
+            System.out.print(arr3[i] + " ");
         }
 
         sc.close();
 
         // Integer Array
+        System.out.println("\n\nInteger Array:");
         int [] ages = new int[3]; // ages[0] = 0, ages[1] = 0, ages[2] = 0
         ages[0] = 25;
         ages[1] = 30;
@@ -86,6 +88,7 @@ public class Array {
         System.out.println(ages[2]);    
     
         // Float Array
+        System.out.println("\nFloat Array:");
         float [] weights = new float[3]; // weights[0] = 0.0, weights[1] = 0.0, weights[2] = 0.0
         weights[0] = 25.5f;
         weights[1] = 30.5f;
@@ -96,6 +99,7 @@ public class Array {
         System.out.println(weights[2]);
 
         // Character Array
+        System.out.println("\nCharacter Array:");
         String [] names = new String[3]; // names[0] = null, names[1] = null, names[2] = null
         names[0] = "Deepak";
         names[1] = "Krishna";
@@ -105,7 +109,6 @@ public class Array {
         System.out.println(names[1]);
         System.out.println(names[2]);
 
-        // System.out.println(names[3]); // Error: ArrayIndexOutOfBoundsException
         
     }
 

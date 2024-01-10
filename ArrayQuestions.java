@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ArrayQuestions {
     public static void main(String[] args) {
 
@@ -110,6 +112,19 @@ public class ArrayQuestions {
 
         System.out.println("Frequency of " + element + " is: " + freq);
 
+        
+        // Find the last occurrence of an element in an array
+        arr = new int[] { 1, 2, 3, 2, 1, 2, 3, 2, 1 };
+        element = 2;
+        index = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == element) {
+                index = i;
+            }
+        }
+
+        System.out.println("Last occurrence of " + element + " is at index " + index);
+
         // Find the first occurrence of an element in an array
         arr = new int[] { 1, 2, 3, 2, 1, 2, 3, 2, 1 };
         element = 2;
@@ -123,19 +138,45 @@ public class ArrayQuestions {
 
         System.out.println("First occurrence of " + element + " is at index " + index);
 
-        // Find the last occurrence of an element in an array
-        arr = new int[] { 1, 2, 3, 2, 1, 2, 3, 2, 1 };
-        element = 2;
-        index = -1;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            if (arr[i] == element) {
-                index = i;
+
+        // Count the number of elements strictly greater than value x
+        arr = new int[] { 1, 3, 3, 2, 4, 5};
+        int x = 2;
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > x)
+                count++;
+        }
+
+        System.out.println("Number of elements strictly greater than " + x + " is: " + count);
+
+
+        // Check if an array is sorted or not
+        arr = new int[] { 1, 2, 3, 4, 5 };
+        boolean isSorted = true;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i + 1] < arr[i]) {
+                isSorted = false;
                 break;
             }
         }
 
-        System.out.println("Last occurrence of " + element + " is at index " + index);
+        if (isSorted)
+            System.out.println("Array is sorted");
+        else
+            System.out.println("Array is not sorted");
 
+
+        // For a given array, print an array such that its first element is smallest and second element is largest
+        arr = new int[] { 5, 8, 1, 3, 6, 2 };
+        Arrays.sort(arr);
+        System.out.println("Sorted array is: " + Arrays.toString(arr));
+
+        System.out.println("Smallest element: " + arr[0]);
+        System.out.println("Largest element: " + arr[arr.length - 1]);
+
+        int [] ans = { arr[0], arr[arr.length - 1] };
+        System.out.println("Array[Smallest, Largest]: " + Arrays.toString(ans));
 
     }
 }
