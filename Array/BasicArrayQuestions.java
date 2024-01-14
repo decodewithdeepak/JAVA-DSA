@@ -1,6 +1,8 @@
+// Notes 14 : https://drive.google.com/file/d/1gUwunT_xZErL7SufZ2mQa91ec59SIWQy/view
+
 import java.util.Arrays;
 
-public class ArrayQuestions {
+public class BasicArrayQuestions {
     public static void main(String[] args) {
 
         int[] arr = { 3, 2, 1, 5, 4 };
@@ -49,6 +51,22 @@ public class ArrayQuestions {
         }
 
         System.out.println("Second smallest element in an array is: " + secondMin);
+
+        // Check if an element is present in an array or not
+        int element = 5;
+        boolean isPresent = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == element) {
+                isPresent = true;
+                break;
+            }
+        }
+
+        if (isPresent)
+            System.out.println("Element " + element + " is present in an array");
+        else
+            System.out.println("Element " + element + " is not present in an array");
+
 
         // Find the sum of all even elements in an array
         int evenSum = 0;
@@ -103,7 +121,7 @@ public class ArrayQuestions {
         
         // Find the frequency of an element in an array
         arr = new int[] { 1, 2, 3, 2, 1, 2, 3, 2, 1 };
-        int element = 2;
+        element = 2;
         int freq = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == element)
@@ -177,6 +195,79 @@ public class ArrayQuestions {
 
         int [] ans = { arr[0], arr[arr.length - 1] };
         System.out.println("Array[Smallest, Largest]: " + Arrays.toString(ans));
+
+        
+        // Target Sum - Find the total number of pairs in an array whose sum is equal to given target
+        arr = new int[] { 4, 6, 3, 5, 8, 2 };
+        int target = 7;
+        int pairCount = 0;
+        for (int i = 0; i < arr.length; i++) { // first number
+            for (int j = i + 1; j < arr.length; j++) { // second number
+                if (arr[i] + arr[j] == target)
+                    pairCount++;
+            }
+        }
+
+        System.out.println("Total number of pairs in the array whose sum is equal to " + target + " is: " + pairCount);
+
+
+        // Count the number of triplets in an array whose sum is equal to given target
+        arr = new int[] { 4, 6, 3, 5, 8, 2 };
+        target = 12;
+        int tripletCount = 0;
+        for (int i = 0; i < arr.length; i++) { // first number
+            for (int j = i + 1; j < arr.length; j++) { // second number
+                for (int k = j + 1; k < arr.length; k++) { // third number
+                    if (arr[i] + arr[j] + arr[k] == target)
+                        tripletCount++;
+                }
+            }
+        }
+
+        System.out.println("Total number of triplets in the array whose sum is equal to " + target + " is: " + tripletCount);
+
+
+        // Array Manipulation - Find the unique number in a given array where all numbers except one, are present twice.
+        arr = new int[] { 1, 2, 3, 4, 2, 1, 3 };
+        int uniqueNumber = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    arr[i] = -1;
+                    arr[j] = -1;
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != -1) {
+                uniqueNumber = arr[i];
+                break;
+            }
+        }
+
+        System.out.println("Unique number in the array is: " + uniqueNumber);
+
+
+        // Given an array consisting of integers. Find the first value which is repeated. If no values are repeated, print "-1".
+        arr = new int[] { 1, 3, 5, 4, 6, 3, 4 };
+        int firstRepeatedValue = -1;
+        for (int i = 0; i < arr.length; i++) { // first number
+            for (int j = i + 1; j < arr.length; j++) { // second number
+                if (arr[i] == arr[j]) {
+                    firstRepeatedValue = arr[i];
+                    break;
+                }
+            }
+            if (firstRepeatedValue != -1)
+                break;
+        }
+
+        System.out.println("First repeated value in the array is: " + firstRepeatedValue);
+
+    
+
 
     }
 }
