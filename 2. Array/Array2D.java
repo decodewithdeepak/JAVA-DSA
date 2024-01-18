@@ -27,7 +27,7 @@ public class Array2D {
         System.out.println(matrix2[0][2]); // 1st row 3rd column
 
         // Length of 2D array
-        System.out.println("Length of matrix2 array is: " + matrix2.length); // 3
+        System.out.println("Length of matrix2 array is: " + matrix2.length); // 3 as it has 3 rows
 
         // Traversing through the 2D array using for loop
         System.out.println("Traversing through the matrix2 array:");
