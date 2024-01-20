@@ -1,5 +1,4 @@
 // Notes 17 : https://drive.google.com/file/d/1ODbxp0kFuIXXw0rEaykLfezSgSNIBckP/view
-// Notes 18 : https://drive.google.com/file/d/1IWUKT7by8vetfmaCsqMRFXiNw87CwDUI/view
 
 // Multidimensional Array: 2D, 3D, 4D, 5D, etc.
 

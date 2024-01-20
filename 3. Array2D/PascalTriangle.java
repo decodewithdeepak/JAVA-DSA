@@ -1,36 +1,56 @@
-// Pascal
+// Pascal Triangle : Given an integer n, return the first n rows of Pascal's triangle.
+// In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+// For example, if n = 5, then output will be:
+//     1
+//    1 1
+//   1 2 1
+//  1 3 3 1
+// 1 4 6 4 1
+
+// The first and the last number of each row in the triangle is 1.
+// ith row has (i + 1) elements.
+
 
 import java.util.Scanner;
 
 public class PascalTriangle {
+
+    static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) { // rows
+            for (int j = 0; j < matrix[i].length; j++) { // columns
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static int[][] pascalTriangle(int n) {
+        int[][] triangle = new int[n][];
+        for (int i = 0; i < n; i++) {
+            // ith row has (i + 1) elements.
+            triangle[i] = new int[i + 1];
+            // First and last element of each row is 1.
+            triangle[i][0] = triangle[i][i] = 1;
+            // Other elements are sum of the elements just above and left of the above.
+            for (int j = 1; j < i; j++) {
+                triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+            }
+
+        }
+
+        return triangle;
+    }
+
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of rows: ");
-        int r = sc.nextInt(); // rows
+        int n = sc.nextInt(); // rows
 
-        int[][] arr = new int[r][r]; // Total number of elements: r * r
+        int[][] triangle = pascalTriangle(n);
+        printMatrix(triangle);
 
-        for (int i = 0; i < r; i++) { // rows
-            for (int j = 0; j <= i; j++) { // columns
-                if (j == 0 || j == i) {
-                    arr[i][j] = 1;
-                } else {
-                    arr[i][j] = arr[i-1][j-1] + arr[i-1][j];
-                }
-            }
-        }
 
-        System.out.println("\nPascal Triangle: ");
-
-        for (int i = 0; i < r; i++) { // rows
-            for (int j = 0; j <= i; j++) { // columns
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-        
         sc.close();
 
     }

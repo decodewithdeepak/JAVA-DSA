@@ -56,10 +56,8 @@ public class PrefixSum {
         int[] prefixSum = makePrefixSumArray(arr);
         printArray(prefixSum);
 
-        // Program to check if an array can be partitioned into two sub-arrays with
-        // equal sum
-        // It means check that the prefix sum of a part of the array is equal to the
-        // suffix sum of the rest of the array
+        // Program to check if an array can be partitioned into two sub-arrays with equal sum
+        // It means check that the prefix sum of a part of the array is equal to the suffix sum of the rest of the array
         arr = new int[] { 15, 5, 6, 4, 8, 2 };
         // Prefix sum array: 15, 20, 26, 30, 38, 40
         // Suffix sum array: 40, 25, 20, 14, 10, 2

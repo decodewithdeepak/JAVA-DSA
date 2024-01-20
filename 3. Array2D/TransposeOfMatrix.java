@@ -1,3 +1,5 @@
+// Notes 18 : https://drive.google.com/file/d/1IWUKT7by8vetfmaCsqMRFXiNw87CwDUI/view
+
 // Transpose of a matrix
 // Transpose of a matrix is obtained by changing rows to columns and columns to rows. 
 // In other words, transpose of A[][] is obtained by changing A[i][j] to A[j][i].
@@ -6,41 +8,78 @@ import java.util.Scanner;
 
 public class TransposeOfMatrix {
 
+    static void printArray(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) { // rows (arr.length gives number of rows)
+            for (int j = 0; j < matrix[i].length; j++) { // column (arr[i].length gives number of columns)
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static int[][] transposeMatrix(int[][] matrix) {
+
+        int r = matrix.length;
+        int c = matrix[0].length;
+
+        int[][] transpose = new int[c][r];
+
+        for (int i = 0; i < c; i++) { // rows
+            for (int j = 0; j < r; j++) { // columns
+                transpose[i][j] = matrix[j][i];
+            }
+        }
+
+        return transpose;
+
+    }
+
+    static void transposeMatrixInPlace(int[][] matrix) { // only for square matrix
+
+        int r = matrix.length;
+        int c = matrix[0].length;
+
+        for (int i = 0; i < c; i++) { // rows
+            for (int j = i; j < r; j++) { // columns
+                // swap(matrix[i][j], matrix[j][i]);
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+                // matrix[i][j] = matrix[i][j] + matrix[j][i];
+                // matrix[j][i] = matrix[i][j] - matrix[j][i];
+                // matrix[i][j] = matrix[i][j] - matrix[j][i];
+            }
+        }
+
+    }
 
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of rows: ");
+        System.out.print("Enter the number of rows and columns: ");
         int r = sc.nextInt(); // rows
-        System.out.print("Enter the number of columns: ");
         int c = sc.nextInt(); // columns
 
-        int[][] arr = new int[r][c]; // Total number of elements: r * c
+        int[][] matrix = new int[r][c]; // Total number of elements: r * c
 
-        System.out.println("Enter " + r*c + " elements in the array: ");
+        System.out.println("Enter " + r*c + " elements in the matrix: ");
         for (int i = 0; i < r; i++) { // rows
             for (int j = 0; j < c; j++) { // columns
-                arr[i][j] = sc.nextInt();
+                matrix[i][j] = sc.nextInt();
             }
         }
 
-        System.out.println("\nElements in the matrix are: ");
+        System.out.println("\nInput Matrix: ");
+        printArray(matrix);
+        
 
-        for (int i = 0; i < r; i++) { // rows
-            for (int j = 0; j < c; j++) { // columns
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
-        }
+        System.out.println("\nTranspose Matrix: ");
+        int[][] transpose = transposeMatrix(matrix);
+        printArray(transpose);
 
-        System.out.println("\nTranspose of the matrix is: ");
+        // transposeMatrixInPlace(matrix);
+        // printArray(matrix);
 
-        for (int i = 0; i < c; i++) { // rows
-            for (int j = 0; j < r; j++) { // columns
-                System.out.print(arr[j][i] + " ");
-            }
-            System.out.println();
-        }
 
 
         sc.close();
