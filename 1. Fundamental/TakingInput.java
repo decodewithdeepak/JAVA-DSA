@@ -11,6 +11,7 @@ public class TakingInput {
         // System.in is the standard input stream
         // new is used to create an object of Scanner class
         // Scanner() is the constructor of Scanner class
+        // sc is the object of Scanner class
         Scanner sc = new Scanner(System.in);
 
 
