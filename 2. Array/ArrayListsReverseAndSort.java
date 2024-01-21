@@ -3,7 +3,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ReverseAndSortArrayList {
+public class ArrayListsReverseAndSort {
 
     static void reverseList(ArrayList<Integer> list) {
         int start = 0; // start index

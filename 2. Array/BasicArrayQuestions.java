@@ -1,5 +1,27 @@
 // Notes 14 : https://drive.google.com/file/d/1gUwunT_xZErL7SufZ2mQa91ec59SIWQy/view
 
+// Sum of all elements in an array'
+// Find the largest element in an array
+// Find the smallest element in an array
+// Find the second largest element in an array
+// Find the second smallest element in an array
+// Check if an element is present in an array or not
+// Find the sum of all even elements in an array
+// Find the sum of all odd elements in an array
+// Find the count of all even elements in an array
+// Find the count of all odd elements in an array
+// Search an element in an array (Linear Search)
+// Find the frequency of an element in an array
+// Find the last occurrence of an element in an array
+// Find the first occurrence of an element in an array
+// Count the number of elements strictly greater than value x
+// Check if an array is sorted or not
+// For a given array, print an array such that its first element is smallest and second element is largest
+// Target Sum - Find the total number of pairs in an array whose sum is equal to given target
+// Count the number of triplets in an array whose sum is equal to given target
+// Array Manipulation - Find the unique number in a given array where all numbers except one, are present twice.
+// Given an array consisting of integers. Find the first value which is repeated. If no values are repeated, print "-1".
+
 import java.util.Arrays;
 
 public class BasicArrayQuestions {
