@@ -2,7 +2,7 @@
 
 // Problems on Time Complexity
 
-public class CalculateTimeComplexity {
+public class TimeComplexityProblems {
 
     public static void main(String[] args) {
 
