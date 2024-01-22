@@ -1,24 +1,24 @@
 // Notes 14 : https://drive.google.com/file/d/1gUwunT_xZErL7SufZ2mQa91ec59SIWQy/view
 
-// Sum of all elements in an array'
-// Find the largest element in an array
-// Find the smallest element in an array
-// Find the second largest element in an array
-// Find the second smallest element in an array
-// Check if an element is present in an array or not
-// Find the sum of all even elements in an array
-// Find the sum of all odd elements in an array
-// Find the count of all even elements in an array
-// Find the count of all odd elements in an array
-// Search an element in an array (Linear Search)
-// Find the frequency of an element in an array
-// Find the last occurrence of an element in an array
-// Find the first occurrence of an element in an array
+// Sum of all elements in array'
+// Find the largest element in array
+// Find the smallest element in array
+// Find the second largest element in array
+// Find the second smallest element in array
+// Check if an element is present in array or not
+// Find the sum of all even elements in array
+// Find the sum of all odd elements in array
+// Find the count of all even elements in array
+// Find the count of all odd elements in array
+// Search an element in array (Linear Search)
+// Find the frequency of an element in array
+// Find the last occurrence of an element in array
+// Find the first occurrence of an element in array
 // Count the number of elements strictly greater than value x
 // Check if an array is sorted or not
 // For a given array, print an array such that its first element is smallest and second element is largest
-// Target Sum - Find the total number of pairs in an array whose sum is equal to given target
-// Count the number of triplets in an array whose sum is equal to given target
+// Target Sum - Find the total number of pairs in array whose sum is equal to given target
+// Count the number of triplets in array whose sum is equal to given target
 // Array Manipulation - Find the unique number in a given array where all numbers except one, are present twice.
 // Given an array consisting of integers. Find the first value which is repeated. If no values are repeated, print "-1".
 
@@ -30,51 +30,56 @@ public class BasicArrayQuestions {
         int[] arr = { 3, 2, 1, 5, 4 };
         // index :    0  1  2  3  4
 
-        // Sum of all elements in an array
+        // Sum of all elements in array
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i]; // sum += arr[i];
         }
 
-        System.out.println("Sum of all elements in an array is: " + sum);
+        System.out.println("Sum of all elements in array is: " + sum);
 
-        // Find the largest element in an array
+        // Find the largest element in array
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max)
                 max = arr[i];
         }
 
-        System.out.println("Largest element in an array is: " + max);
+        // int max = Integer.MIN_VALUE;
+        // for (int i = 0; i < arr.length; i++) {
+        //     max = Math.max(arr[i], max);
+        // }
 
-        // Find the smallest element in an array
+        System.out.println("Largest element in array is: " + max);
+
+        // Find the smallest element in array
         int min = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < min)
                 min = arr[i];
         }
 
-        System.out.println("Smallest element in an array is: " + min);
+        System.out.println("Smallest element in array is: " + min);
 
-        // Find the second largest element in an array
+        // Find the second largest element in array
         int secondMax = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] > secondMax && arr[i] < max)
                 secondMax = arr[i];
         }
 
-        System.out.println("Second largest element in an array is: " + secondMax);
+        System.out.println("Second largest element in array is: " + secondMax);
 
-        // Find the second smallest element in an array
+        // Find the second smallest element in array
         int secondMin = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < secondMin && arr[i] > min)
                 secondMin = arr[i];
         }
 
-        System.out.println("Second smallest element in an array is: " + secondMin);
+        System.out.println("Second smallest element in array is: " + secondMin);
 
-        // Check if an element is present in an array or not
+        // Check if an element is present in array or not
         int element = 5;
         boolean isPresent = false;
         for (int i = 0; i < arr.length; i++) {
@@ -85,49 +90,49 @@ public class BasicArrayQuestions {
         }
 
         if (isPresent)
-            System.out.println("Element " + element + " is present in an array");
+            System.out.println("Element " + element + " is present in array");
         else
-            System.out.println("Element " + element + " is not present in an array");
+            System.out.println("Element " + element + " is not present in array");
 
 
-        // Find the sum of all even elements in an array
+        // Find the sum of all even elements in array
         int evenSum = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0)
                 evenSum += arr[i]; // evenSum = evenSum + arr[i];
         }
 
-        System.out.println("Sum of all even elements in an array is: " + evenSum);
+        System.out.println("Sum of all even elements in array is: " + evenSum);
 
-        // Find the sum of all odd elements in an array
+        // Find the sum of all odd elements in array
         int oddSum = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 != 0)
                 oddSum += arr[i]; // oddSum = oddSum + arr[i];
         }
 
-        System.out.println("Sum of all odd elements in an array is: " + oddSum);
+        System.out.println("Sum of all odd elements in array is: " + oddSum);
 
-        // Find the count of all even elements in an array
+        // Find the count of all even elements in array
         int evenCount = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0)
                 evenCount++;
         }
 
-        System.out.println("Count of all even elements in an array is: " + evenCount);
+        System.out.println("Count of all even elements in array is: " + evenCount);
 
-        // Find the count of all odd elements in an array
+        // Find the count of all odd elements in array
         int oddCount = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 != 0)
                 oddCount++;
         }
 
-        System.out.println("Count of all odd elements in an array is: " + oddCount);
+        System.out.println("Count of all odd elements in array is: " + oddCount);
 
 
-        // Search an element in an array (Linear Search)
+        // Search an element in array (Linear Search)
         arr = new int[] { 3, 2, 1, 5, 4 }; // re-initialize the array using new keyword
 
         int searchElement = 5;
@@ -141,7 +146,7 @@ public class BasicArrayQuestions {
 
         System.out.println("Element " + searchElement + " found at index " + index);
         
-        // Find the frequency of an element in an array
+        // Find the frequency of an element in array
         arr = new int[] { 1, 2, 3, 2, 1, 2, 3, 2, 1 };
         element = 2;
         int freq = 0;
@@ -153,7 +158,7 @@ public class BasicArrayQuestions {
         System.out.println("Frequency of " + element + " is: " + freq);
 
         
-        // Find the last occurrence of an element in an array
+        // Find the last occurrence of an element in array
         arr = new int[] { 1, 2, 3, 2, 1, 2, 3, 2, 1 };
         element = 2;
         index = -1;
@@ -165,7 +170,7 @@ public class BasicArrayQuestions {
 
         System.out.println("Last occurrence of " + element + " is at index " + index);
 
-        // Find the first occurrence of an element in an array
+        // Find the first occurrence of an element in array
         arr = new int[] { 1, 2, 3, 2, 1, 2, 3, 2, 1 };
         element = 2;
         index = -1;
@@ -219,7 +224,7 @@ public class BasicArrayQuestions {
         System.out.println("Array[Smallest, Largest]: " + Arrays.toString(ans));
 
         
-        // Target Sum - Find the total number of pairs in an array whose sum is equal to given target
+        // Target Sum - Find the total number of pairs in array whose sum is equal to given target
         arr = new int[] { 4, 6, 3, 5, 8, 2 };
         int target = 7;
         int pairCount = 0;
@@ -233,7 +238,7 @@ public class BasicArrayQuestions {
         System.out.println("Total number of pairs in the array whose sum is equal to " + target + " is: " + pairCount);
 
 
-        // Count the number of triplets in an array whose sum is equal to given target
+        // Count the number of triplets in array whose sum is equal to given target
         arr = new int[] { 4, 6, 3, 5, 8, 2 };
         target = 12;
         int tripletCount = 0;

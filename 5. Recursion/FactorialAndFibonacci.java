@@ -10,7 +10,8 @@ public class FactorialAndFibonacci {
         // base case - halting condition
         if (n == 0) return 1;
         
-        // // smaller subproblem - recursive call - n! = n * (n-1)!
+        // // smaller subproblem - recursive call
+        // // recursion relation -> n! = (n-1)! * n
         // int smallAns = factorial(n - 1);
 
         // // big problem - self work
@@ -25,7 +26,8 @@ public class FactorialAndFibonacci {
         // base case - halting condition
         if (n == 0 || n == 1) return n;
 
-        // // smaller subproblem - recursive call - fibonacci(n) = fibonacci(n-1) + fibonacci(n-2)
+        // // smaller subproblem - recursive call
+        // // recursion relation -> fibonacci(n) = fibonacci(n-1) + fibonacci(n-2)
         // int prev1 = fibonacci(n - 1);
         // int prev2 = fibonacci(n - 2);
 
@@ -55,9 +57,13 @@ public class FactorialAndFibonacci {
         // factorial(4) returns 4 * 6 = 24
         
         // Time Complexity = No of recursive calls * Time taken in each recursive call
+        // No of recursive calls = n+1 (0 to n) = n
+        // Time taken in each recursive call = constant
         // T(n) = n * c = O(n) - Linear Time Complexity
 
         // Space Complexity = No of stack frames * Space taken by each stack frame
+        // No of stack frames = No of recursive calls = n+1 (0 to n) = n
+        // Space taken by each stack frame = constant
         // S(n) = n * c = O(n) - Linear Space Complexity
 
 
