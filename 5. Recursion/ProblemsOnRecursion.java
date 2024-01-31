@@ -93,6 +93,27 @@ public class ProblemsOnRecursion {
         }
         return sum == n;
     }
+
+    // 6. Check if a number is palindrome or not using recursion
+    // Example for n = 12321 -> True
+
+    static int reverse(int n) { // O(n)
+        if (n < 10) return n; // base case
+
+        // recursion relation -> reverse(n) = reverse(n / 10) + (n % 10) * 10 ^ (no. of digits - 1)
+
+        int smallAns = reverse(n / 10); // smaller subproblem
+        int lastDigit = n % 10; // self work
+        int noOfDigits = (int) Math.log10(n); // self work
+        return smallAns + lastDigit * (int) Math.pow(10, noOfDigits); // return statement
+    }
+
+    static boolean isPalindrome(int n) { // recursive function
+        if (n < 10) return true; // base case
+        int rev = reverse(n); // self work
+        return n == rev; // return statement
+    }
+    
     
     public static void main(String[] args) {
 
@@ -109,8 +130,11 @@ public class ProblemsOnRecursion {
         // int b = sc.nextInt();
         // System.out.println(multiply(a, b));
 
+        // int n = sc.nextInt();
+        // System.out.println(isArmstrong(n));
+
         int n = sc.nextInt();
-        System.out.println(isArmstrong(n));
+        System.out.println(isPalindrome(n));
 
         sc.close();
 

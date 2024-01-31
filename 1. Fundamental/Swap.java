@@ -6,7 +6,7 @@ public class Swap {
         int b = 10;
         System.out.println("Before swapping: a = " + a + " and b = " + b);
 
-        // Swap using temp variable (third variable).0..
+        // Swap using temp variable (third variable)
         // int temp = a;
         // a = b;
         // b = temp;

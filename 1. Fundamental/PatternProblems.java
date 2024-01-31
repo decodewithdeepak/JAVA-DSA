@@ -177,7 +177,9 @@ public class PatternProblems {
         // 3   3
         //4444444
 
-        
+
+
 
     }
+
 }
