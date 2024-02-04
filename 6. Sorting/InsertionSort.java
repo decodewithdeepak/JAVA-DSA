@@ -22,19 +22,35 @@
 
 public class InsertionSort {
 
-    static void insertionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) { // Start from the second element
-            int key = arr[i]; // Current element to be inserted in the sorted part of the array
-            int j = i - 1; // Last element of the sorted part of the array
-            // Move elements of arr[0..i-1], that are greater than key, to one position ahead of their current position
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
+    static void insertionSort1(int[] a) {
+        int n = a.length;
+        for (int i = 1; i < n; i++) { // start from 2nd element
+            int j = i; // current index
+            // insert a[i] in the sorted left part 0...i-1
+            while (j > 0 && a[j] < a[j - 1]) {
+                // swap a[j] and a[j-1]
+                int temp = a[j];
+                a[j] = a[j - 1];
+                a[j - 1] = temp;
                 j--;
             }
-            arr[j + 1] = key;
         }
     }
+
+    static void insertionSort(int[] a) {
+        int n = a.length;
+        for (int i = 1; i < n; i++) { // start from 2nd element
+            int key = a[i]; // current element to be inserted
+            int j = i - 1; // index of the last element in the sorted part
+            // Move elements greater than key to one position ahead of their current position
+            while (j >= 0 && a[j] > key) {
+                a[j + 1] = a[j]; // shift elements to the right
+                j--;
+            }
+            a[j + 1] = key; // insert the key at the correct position
+        }
+    }
+    
 
     public static void main(String[] args) {
         int[] arr = { 5, 4, 1, 2, 3, 0 };
