@@ -7,7 +7,7 @@
 
 import java.util.Arrays;
 
-public class BinarySearchProblems {
+public class BinSearchProblems1 {
 
     // 1. Find the first occurrence of a given element.
     static int findFirstOccurrence(int[] arr, int target) {
