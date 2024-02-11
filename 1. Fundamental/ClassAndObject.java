@@ -29,7 +29,7 @@
 // + Body - The body of class which consists of attributes, objects, methods and so on
 
 
-// Note : It is better to keep classes in separate files but if you want to keep multiple classes in a single file, then only one class can be public and the name of that class should be the name of the file.
+// Note : It is better to keep classes outside of main method or in a separate file.
 
 public class ClassAndObject {
     public static void main(String[] args) {
