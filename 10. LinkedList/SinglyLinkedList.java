@@ -20,7 +20,7 @@ public class SinglyLinkedList {
 
 
         // Traversing the linked list | TC- O(n) | SC- O(1)
-        public void printList() { 
+        void printList() { 
             Node curr = head; // Current temp node
             while (curr != null) {
                 System.out.print(curr.data + " ");
@@ -34,7 +34,7 @@ public class SinglyLinkedList {
         //  If only head is given - O(n)
         // If linked list class is given - O(1)
 
-        public int size() {
+        int size() {
             // Node curr = head;
             // int count = 0;
             // while (curr != null) { // O(n)
@@ -49,7 +49,7 @@ public class SinglyLinkedList {
         // Inserting a node at the end (tail) | TC- O(1) | SC- O(1)
         // If tail is given - O(1)
         // If only head is given - O(n)
-        public void insertAtEnd(int data) { // TC- O(1) 
+        void insertAtEnd(int data) { // TC- O(1) 
             Node newNode = new Node(data);
             if (head == null) { // empty list
                 head = newNode;
@@ -64,7 +64,7 @@ public class SinglyLinkedList {
 
 
         // Inserting a node at the beginning (head)
-        public void insertAtBeginning(int data) { // TC- O(1) | SC- O(1)
+        void insertAtBeginning(int data) { // TC- O(1) | SC- O(1)
             Node newNode = new Node(data);
             if (head == null) { // empty list
                 head = newNode;
@@ -79,7 +79,7 @@ public class SinglyLinkedList {
 
 
         // Inserting a node at a given index (random)
-        public void insertAtIndex(int idx, int data) { // TC- O(n) | SC- O(1)
+        void insertAtIndex(int idx, int data) { // TC- O(n) | SC- O(1)
             if(idx < 0 || idx > size) { // invalid index
                 System.out.println("Invalid index");
                 return;
@@ -108,7 +108,7 @@ public class SinglyLinkedList {
 
 
         // Deleting a node at the end | TC- O(n) | SC- O(1)
-        public void deleteAtEnd() {
+        void deleteAtEnd() {
             if (head == null) { // empty list
                 System.out.println("List is empty");
                 return;
@@ -129,7 +129,7 @@ public class SinglyLinkedList {
 
 
         // Deleting a node at the beginning | TC- O(1) | SC- O(1)
-        public void deleteAtBeginning() {
+        void deleteAtBeginning() {
             if (head == null) { // empty list
                 System.out.println("List is empty");
                 return;
@@ -145,7 +145,7 @@ public class SinglyLinkedList {
 
 
         // Deleting a node at a given index (random) | TC- O(n) | SC- O(1)
-        public void deleteAtIndex(int idx) { 
+        void deleteAtIndex(int idx) { 
             if(idx < 0 || idx >= size) { // invalid index
                 System.out.println("Invalid index");
                 return;
@@ -172,7 +172,7 @@ public class SinglyLinkedList {
 
 
         // getElemetAtIndex method | TC- O(n) | SC- O(1)
-        public int getElementAtIndex(int idx) {
+        int getElementAtIndex(int idx) {
             if(idx < 0 || idx >= size) { // invalid index
                 System.out.println("Invalid index");
                 return -1;
@@ -186,7 +186,7 @@ public class SinglyLinkedList {
 
 
         // Reverse the linked list | TC- O(n) | SC- O(1)
-        public void reverseList() {
+        void reverseList() {
             Node prev = null;
             Node curr = head;
             Node next = null;
