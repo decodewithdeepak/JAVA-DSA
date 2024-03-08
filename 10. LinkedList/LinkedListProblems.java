@@ -12,15 +12,14 @@
 // 8. Linked List Cycle 2 - Problem 142 (https://leetcode.com/problems/linked-list-cycle-ii/)
 // 9. Merge 2 sorted Linked Lists - O(n) space - Problem 21 (https://leetcode.com/problems/merge-two-sorted-lists/)
 // 10. Merge 2 sorted Linked Lists - O(1) space
-// 11. Odd Even Linked List - Problem 328 (https://leetcode.com/problems/odd-even-linked-list/)
-// 12. Split LinkedList into 2 lists with odd and even values
-// 13. Remove duplicates from sorted linked list - Problem 83 (https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+// 11. Remove duplicates from sorted linked list - Problem 83 (https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+// 12. Odd Even Linked List - Problem 328 (https://leetcode.com/problems/odd-even-linked-list/)
+// 13. Split LinkedList into 2 lists with odd and even values
 // 14. Reverse a linked list - recursive - Problem 206 (https://leetcode.com/problems/reverse-linked-list/)
 // 15. Reverse a linked list - iterative
 // 16. Palindrome Linked List - Problem 234 (https://leetcode.com/problems/palindrome-linked-list/)
-// 17. Maximum Twin Sum of a Linked List
+// 17. Maximum Twin Sum of a Linked List - Problem 2130 (https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/)
 // 18. Copy List with Random Pointer - Problem 138 (https://leetcode.com/problems/copy-list-with-random-pointer/)
-
 
 public class LinkedListProblems {
 
@@ -126,10 +125,11 @@ public class LinkedListProblems {
     }
 
     // 5. Find middle element of linked list - Problem 876
-    public ListNode middleNode(ListNode head) {
+    public ListNode findMiddle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
 
+        // Second middle for even length linked list
         while (fast != null && fast.next != null) { // fast.next != null is used to handle even length linked list
             slow = slow.next;
             fast = fast.next.next;
@@ -258,9 +258,25 @@ public class LinkedListProblems {
     // The time complexity of this mergeTwoLists1 function is O(n), where n is the total number of nodes in both input lists. This is because we iterate through both lists once to merge them together. 
     // The space complexity is O(1) because we only use a constant amount of extra space for the dummy node and a few pointers, regardless of the size of the input lists.
 
-    // 11. Odd Even Linked List - Problem 328
+    // 11. Remove duplicates from sorted linked list - Problem 83
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode temp = head;
+
+        while (temp != null && temp.next != null) {
+            if (temp.val == temp.next.val) {
+                temp.next = temp.next.next; // Skip the duplicate node
+            } else {
+                temp = temp.next;
+            }
+        }
+        
+        return head;
+    }
+
+    // 12. Odd Even Linked List - Problem 328
     public ListNode oddEvenList(ListNode head) {
         if (head == null) return null;
+        
         ListNode odd = head;
         ListNode even = head.next;
         ListNode evenHead = even;
@@ -271,13 +287,14 @@ public class LinkedListProblems {
             even.next = odd.next;
             even = even.next;
         }
-        
+
         odd.next = evenHead;
+        
         return head;
     }
 
 
-    // 12. Split LinkedList into 2 lists with odd and even values
+    // 13. Split LinkedList into 2 lists with odd and even values
     public ListNode[] splitListIntoOddEven(ListNode head) {
         ListNode odd = new ListNode(0);
         ListNode even = new ListNode(0);
@@ -301,62 +318,52 @@ public class LinkedListProblems {
         return new ListNode[] {oddHead.next, evenHead.next};
     }
 
-    // 13. Remove duplicates from sorted linked list - Problem 83
-    public ListNode deleteDuplicates(ListNode head) {
-        ListNode current = head;
-        
-        while (current != null && current.next != null) {
-            if (current.val == current.next.val) {
-                current.next = current.next.next;
-            } else {
-                current = current.next;
-            }
-        }
-        
-        return head;
-    }
-
     // 14. Reverse a linked list - recursive - Problem 206
-    public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) {
+    public ListNode reverseListRec(ListNode head) {
+        if (head == null || head.next == null) { // Base case
             return head;
         }
         
-        ListNode newHead = reverseList(head.next);
-        head.next.next = head;
+        ListNode newHead = reverseList(head.next); // Recursive call
+        head.next.next = head; // Self work
         head.next = null;
         
         return newHead;
     }
 
-    // 15. Reverse a linked list - iterative
-    public ListNode reverseListIterative(ListNode head) {
+    // 15. Reverse a linked list - iterative - SC- O(1)
+    public ListNode reverseList(ListNode head) {
         ListNode prev = null;
-        ListNode current = head;
-        
-        while (current != null) {
-            ListNode next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+        ListNode curr = head;
+        ListNode next = null;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        
+
         return prev;
     }
 
     // 16. Palindrome Linked List - Problem 234
     public boolean isPalindrome(ListNode head) {
+        
+        // Find the middle of the linked list (first middle)
         ListNode slow = head;
         ListNode fast = head;
-        
+
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        
+
+        // Reverse the second half of the linked list
         slow = reverseList(slow);
         fast = head;
-        
+
+        // Compare the first and second half of the linked list
         while (slow != null) {
             if (slow.val != fast.val) {
                 return false;
@@ -364,28 +371,31 @@ public class LinkedListProblems {
             slow = slow.next;
             fast = fast.next;
         }
-        
+
         return true;
     }
 
-    // 17. Maximum Twin Sum of a Linked List
-    public int maxTwinSum(ListNode head) {
-        ListNode current = head;
-        int max = Integer.MIN_VALUE;
-        
-        while (current != null && current.next != null) {
-            max = Math.max(max, current.val + current.next.val);
-            current = current.next.next;
+    // 17. Maximum Twin Sum of a Linked List - Problem 2130 
+    public int pairSum(ListNode head) {
+        // Find middle of the linked list
+        ListNode middle = findMiddle(head);
+        // Reverse the second half of the linked list
+        ListNode secondHalf = reverseList(middle); // Store the head of the second half
+        // Pair sum
+        int maxSum = 0;
+        while (head != null && secondHalf != null) {
+            maxSum = Math.max(maxSum, head.val + secondHalf.val);
+            head = head.next;
+            secondHalf = secondHalf.next;
         }
-        
-        return max;
+        return maxSum;
     }
 
     // 18. Copy List with Random Pointer - Problem 138
-    
 
 
     public static void main(String[] args) {
-
+        
     }
+
 }
