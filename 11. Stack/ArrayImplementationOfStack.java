@@ -1,8 +1,8 @@
-// Implement a Stack using an Array
+// Implementation of a Stack using an Array
 
 public class ArrayImplementationOfStack {
 
-    // Create a class for the stack
+    // Class for the stack
     public static class Stack {
         private int maxSize; // Maximum size of the stack
         private int[] arr; // Array to store the elements of the stack
@@ -18,7 +18,7 @@ public class ArrayImplementationOfStack {
         // Push elements into the stack
         public void push(int value) {
             if (isFull()) {
-                System.out.println("The stack is full");
+                System.out.println("Stack is full");
             } else {
                 top++;
                 arr[top] = value;
@@ -28,7 +28,7 @@ public class ArrayImplementationOfStack {
         // Pop elements from the stack
         public int pop() {
             if (isEmpty()) {
-                System.out.println("The stack is empty");
+                System.out.println("Stack is empty");
                 return -1;
             }
 
@@ -40,7 +40,7 @@ public class ArrayImplementationOfStack {
         // Peek the top of the stack
         public int peek() {
             if (isEmpty()) {
-                System.out.println("The stack is empty");
+                System.out.println("Stack is empty");
                 return -1;
             }
 
