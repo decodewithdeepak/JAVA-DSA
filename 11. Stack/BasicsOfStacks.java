@@ -15,7 +15,7 @@
 // 2. Stack Underflow - When we try to pop an element from an empty stack
 
 import java.util.Scanner;
-import java.util.Stack;
+import java.util.Stack; // Standard Java library for Stack
 
 public class BasicsOfStacks {
     public static void main(String[] args) {

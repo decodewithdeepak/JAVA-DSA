@@ -1,4 +1,4 @@
-// 1. Move contents of one stack to another stack in same order
+// 1. Move contents of one stack to another stack in same order using an auxiliary stack
 // 2. Insert an element at the bottom of the stack
 // 3. Insert an element at any index in the stack
 // 4. Display the stack without the inbuilt method
@@ -136,7 +136,7 @@ public class ProblemsOnStack {
         }
     }
 
-    // Recursive approach
+    // Recursive approach - Without using any extra space
     public static void reverseRec(Stack<Integer> st) {
         if (st.isEmpty()) return;
         int top = st.pop();
