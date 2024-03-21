@@ -10,6 +10,8 @@
 // OR Stock Span Problem - Leetcode 901 (https://leetcode.com/problems/online-stock-span)
 // 8. Largest Area Histogram - Leetcode 84 (https://leetcode.com/problems/largest-rectangle-in-histogram)
 // 9. Min Stack - Leetcode 155 (https://leetcode.com/problems/min-stack)
+// 10. Celebrity Problem - GFG (https://www.geeksforgeeks.org/problems/the-celebrity-problem/1)
+// 11. Sliding Window Maximum - Leetcode 239 (https://leetcode.com/problems/sliding-window-maximum)
 
 import java.util.Stack;
 
@@ -243,6 +245,52 @@ public class InterviewProblems {
         }
     }
 
+    // 10. Celebrity Problem - GFG
+    public static int celebrity(int M[][], int n){
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            st.push(i);
+        }
+        while (st.size() > 1) {
+            int a = st.pop();
+            int b = st.pop();
+            if (M[a][b] == 1) {
+                st.push(b);
+            } else {
+                st.push(a);
+            }
+        }
+        int c = st.pop();
+        for (int i = 0; i < n; i++) {
+            if (i != c && (M[c][i] == 1 || M[i][c] == 0)) {
+                return -1;
+            }
+        }
+        return c;
+    }
+
+    // 11. Sliding Window Maximum - Leetcode 239
+    public static int[] maxSlidingWindow(int[] nums, int k) {
+        int n = nums.length;
+        int[] ans = new int[n - k + 1];
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            while (!st.isEmpty() && nums[i] >= nums[st.peek()]) {
+                st.pop();
+            }
+            st.push(i);
+            if (i - k + 1 >= 0) {
+                ans[i - k + 1] = nums[st.get(0)];
+            }
+            if (i - k + 1 >= st.get(0)) {
+                st.remove(0);
+            }
+        }
+        return ans;
+    }
+
+
+
     public static void main(String[] args) {
 
         // 1. Balanced Parentheses - Leetcode 20
@@ -293,16 +341,25 @@ public class InterviewProblems {
         // System.out.println(largestRectangleArea(new int[] {2, 4})); // 4
 
         // 9. Min Stack - Leetcode 155
-        MinStack obj = new MinStack();
-        obj.push(-2);
-        obj.push(0);
-        obj.push(-3);
-        System.out.println(obj.getMin()); // -3
-        obj.pop();
-        System.out.println(obj.top()); // 0
-        System.out.println(obj.getMin()); // -2
+        // MinStack obj = new MinStack();
+        // obj.push(-2);
+        // obj.push(0);
+        // obj.push(-3);
+        // System.out.println(obj.getMin()); // -3
+        // obj.pop();
+        // System.out.println(obj.top()); // 0
+        // System.out.println(obj.getMin()); // -2
 
+        // 10. Celebrity Problem - GFG
+        // int[][] M = {{0, 1, 0}, {0, 0, 0}, {0, 1, 0}};
+        // System.out.println(celebrity(M, 3)); // 1
 
+        // 11. Sliding Window Maximum - Leetcode 239
+        int[] nums = {1,3,-1,-3,5,3,6,7};
+        int k = 3;
+        int[] ans = maxSlidingWindow(nums,k);
+        for (int i : ans) System.out.print(i + " "); // [3,3,5,5,6,7]
+        
 
 
 
