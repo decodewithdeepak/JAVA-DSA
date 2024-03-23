@@ -73,6 +73,8 @@ public class ArrayImplementationOfStack {
     }
 
     public static void main(String[] args) {
+
+        // Create a stack with a maximum size of 5
         Stack st = new Stack(5);
 
         // Push elements into the stack
@@ -98,10 +100,10 @@ public class ArrayImplementationOfStack {
         System.out.println(st.getSize()); // 3
 
         // Check if the stack is full
-        System.out.println(st.isFull());
+        System.out.println(st.isFull()); // false
 
         // Check if the stack is empty
-        System.out.println(st.isEmpty());
+        System.out.println(st.isEmpty()); // false
 
 
     }

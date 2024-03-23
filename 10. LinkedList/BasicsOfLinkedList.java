@@ -2,7 +2,7 @@
 
 // Basics of Linked List
 
-public class LinkedList {
+public class BasicsOfLinkedList {
     
     // Node class of linked list
     public static class Node {

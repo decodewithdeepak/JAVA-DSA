@@ -94,6 +94,9 @@ public class LikedListImplementationOfStack {
 
         // Get the size of the stack
         System.out.println("Size of the stack: " + st.getSize()); // 2
+
+        // Check if the stack is empty
+        System.out.println("Is the stack empty? " + st.isEmpty()); // false
     }
 
 
