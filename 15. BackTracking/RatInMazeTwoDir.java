@@ -1,7 +1,7 @@
 // Problem: Rat in a Maze I [ 2 Directions - Right and Down] Using Recursion
 // Time Complexity: O(2^(n+m)) where n = rows, m = columns - TLE for n,m > 10
 
-public class MazePathTwoDir {
+public class RatInMazeTwoDir {
 
     public static int uniquePath(int sr, int sc, int er, int ec) {
         // sr = start row, sc = start column, er = end row, ec = end column

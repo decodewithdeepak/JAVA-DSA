@@ -4,7 +4,7 @@
 // Active Block - 1 - True
 // Dead Block - 0 - False
 
-public class MazePathObstacle {
+public class RatInMazeObstacleTwoDir {
 
     public static int uniquePath(int sr, int sc, int er, int ec, int[][] maze) {
         // sr = start row, sc = start column, er = end row, ec = end column

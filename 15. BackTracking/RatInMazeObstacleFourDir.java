@@ -3,8 +3,9 @@
 // Find the number of ways to reach the destination and print all possible paths.
 // Active Block - 1 - True
 // Dead Block - 0 - False
+// GFG - https://www.geeksforgeeks.org/rat-in-a-maze-problem-when-movement-in-all-possible-directions-is-allowed/
 
-public class MazePathObstacleFourDir {
+public class RatInMazeObstacleFourDir {
 
     public static int uniquePath(int sr, int sc, int er, int ec, int[][] maze, boolean[][] isVisited) {
         // sr = start row, sc = start column, er = end row, ec = end column
@@ -98,16 +99,17 @@ public class MazePathObstacleFourDir {
     }
 
     public static void main(String[] args) {
-        int[][] maze = {{1, 0, 1, 1}, 
-                        {1, 1, 1, 1}, 
+        int[][] maze = {{1, 0, 0, 0},
+                        {1, 1, 0, 1}, 
+                        {1, 1, 0, 0},
                         {0, 1, 1, 1}};
         int rows = maze.length;
         int cols = maze[0].length;
         
-        // boolean[][] isVisited = new boolean[rows][cols]; // By default all values are false (unvisited)
+        boolean[][] isVisited = new boolean[rows][cols]; // By default all values are false (unvisited)
 
-        // System.out.println(uniquePath(0, 0, rows-1, cols-1, maze, isVisited));
-        // printPath(0, 0, rows-1, cols-1, "", maze, isVisited);
+        System.out.println(uniquePath(0, 0, rows-1, cols-1, maze, isVisited));
+        printPath(0, 0, rows-1, cols-1, "", maze, isVisited);
 
         // Optimised approach - Reducing space complexity without using isVisited array
         System.out.println(uniquePath(0, 0, rows-1, cols-1, maze));

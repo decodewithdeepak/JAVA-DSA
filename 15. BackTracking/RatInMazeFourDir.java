@@ -1,6 +1,6 @@
 // Problem: Rat in a Maze II [ 4 Directions - Right, Down, Left, Up] Using Backtracking
 
-public class MazePathFourDir {
+public class RatInMazeFourDir {
 
     public static int uniquePath(int sr, int sc, int er, int ec, boolean[][] isVisited) {
         // sr = start row, sc = start column, er = end row, ec = end column
