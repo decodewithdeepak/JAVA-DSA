@@ -49,7 +49,7 @@
 // 7. B+ Tree: A self-balancing tree in which each node can have more than two children and all keys are present in the leaf nodes.
 
 
-public class BasicsOfTrees {
+public class a_BasicsOfTrees {
 
     public static void main(String[] args) {
         System.out.println("Basics of Trees");

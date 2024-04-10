@@ -2,11 +2,19 @@
 
 // Binary Tree - A tree in which a node can have at most two children left and right.
 
+// Types of Binary Trees:
+// 1. Full Binary Tree - A binary tree in which every node has 0 or 2 children.
+// 2. Complete Binary Tree - A binary tree in which all levels are completely filled except possibly the last level and the last level has all keys as left as possible.
+// 3. Perfect Binary Tree - A binary tree in which all internal nodes have two children and all leaves are at the same level.
+// 4. Balanced Binary Tree - A binary tree in which the depth of the left and right subtree of every node differ by at most 1.
+// 5. Degenerate (or pathological) Tree - A tree in which every internal node has one child.
+// 6. Skewed Binary Tree - A binary tree in which all nodes have only one child and the height of the tree is n-1.
+
 // Traversal of a binary tree - DFS and BFS
 // Depth First Traversal (DFS) - Preorder, Inorder, Postorder
 // Breadth First Traversal (BFS) - Level order traversal
 
-public class BinaryTree {
+public class b_BinaryTree {
     
     // Node class of a binary tree
     public static class Node {
@@ -44,14 +52,14 @@ public class BinaryTree {
     }
 
     // Find height of the binary tree
-    // Height = No. of levels - 1 = Maximum no. of edges from root to leaf node
+    // Assuming root is at level 0 and height of a tree with only root node is 0.
     public static int height(Node root) {
-        if (root == null || (root.left == null && root.right == null)) return 0;
+        if (root == null) return -1; // height of a empty tree is -1
 
         int left = height(root.left); // Left subtree
         int right = height(root.right); // Right subtree
 
-        return Math.max(left, right) + 1; // Height of the tree
+        return Math.max(left, right) + 1; // Total height
     }
 
     // Find sum of the tree nodes
@@ -94,9 +102,9 @@ public class BinaryTree {
         return Math.min(root.data, Math.min(left, right)); // Minimum value
     }
 
-    // Print elements on nth level
+    // Print elements on nth level (assuming root is at level 0)
     public static void printNthLevel(Node root, int level) {
-        if (root == null || level < 0 ) return;
+        if (root == null || level < 0) return;
 
         if (level == 0) {
             System.out.print(root.data + " ");
@@ -112,11 +120,10 @@ public class BinaryTree {
         if (root == null) return;
 
         int h = height(root); // Height of the tree
-
         for (int i = 0; i <= h; i++) {
-            printNthLevel(root, i);
+            printNthLevel(root, i); // Print elements on ith level
             System.out.println();
-        }        
+        }
     }
 
     public static void main(String[] args) {
@@ -132,13 +139,13 @@ public class BinaryTree {
         root.right.right.left = new Node(8);
         root.right.right.right = new Node(9);
         
-        //         1
+        //         1 --> root (level 0)
         //       /   \
         //      2     3
         //     / \     \
         //    4   5     6
         //       /     / \
-        //      7     8   9
+        //      7     8   9 --> Height of the tree = 3
 
         // Display the binary tree
         display(root);
@@ -161,7 +168,7 @@ public class BinaryTree {
         // Minimum value of the tree nodes
         System.out.println(min(root)); // 1
 
-        // Print elements on nth level (0 based index)
+        // Print elements on nth level
         printNthLevel(root, 2); // 4 5 6
         System.out.println();
 

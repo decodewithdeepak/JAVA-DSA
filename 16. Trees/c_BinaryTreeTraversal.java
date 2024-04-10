@@ -23,7 +23,7 @@
 
 import java.util.*;
 
-public class BinaryTreeTraversal {
+public class c_BinaryTreeTraversal {
 
     // Node class of a binary tree
     public static class Node {
@@ -143,24 +143,21 @@ public class BinaryTreeTraversal {
 
     // Level order - Recursive
     public static void levelOrderRecursive(Node root) {
-        int h = height(root);
+        if (root == null) return;
 
+        int h = height(root);
         for (int i = 0; i <= h; i++) {
             printNthLevel(root, i);
         }
     }
 
     public static int height(Node root) {
-        if (root == null) return -1;
-
-        int left = height(root.left);
-        int right = height(root.right);
-
-        return Math.max(left, right) + 1;
+        if (root == null) return -1; // height of a empty tree is -1
+        return 1 + Math.max(height(root.left), height(root.right));
     }
 
     public static void printNthLevel(Node root, int level) {
-        if (root == null || level < 0 ) return;
+        if (root == null || level < 0) return;
 
         if (level == 0) {
             System.out.print(root.data + " ");
@@ -183,13 +180,13 @@ public class BinaryTreeTraversal {
         root.right.right.left = new Node(8);
         root.right.right.right = new Node(9);
         
-        //         1
+        //         1 --> root (level 0)
         //       /   \
         //      2     3
         //     / \     \
         //    4   5     6
         //       /     / \
-        //      7     8   9
+        //      7     8   9 --> (level 3)
 
         System.out.println("Preorder traversal:");
         preorder(root);
