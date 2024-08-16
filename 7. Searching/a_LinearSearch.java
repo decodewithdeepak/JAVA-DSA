@@ -1,7 +1,7 @@
 // Linear Search -> Based on Traversal
 // Time Complexity: O(n) - Linear Time
 
-public class LinearSearch {
+public class a_LinearSearch {
 
     static int linearSearch(int[] arr, int target) {
         if (arr.length == 0) {

@@ -38,14 +38,14 @@ public class BasicArrayQuestions {
 
     // 2. Find the largest element in array
     static int findLargest(int[] arr) {
-        int max = arr[0];
-        for (int i = 1; i < arr.length; i++) {
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i] > max) {
                 max = arr[i];
             }
         }
         
-        // int max = Integer.MIN_VALUE;
         // for (int i = 0; i < arr.length; i++) {
         //     max = Math.max(arr[i], max);
         // }
@@ -53,44 +53,49 @@ public class BasicArrayQuestions {
         return max;
     }
 
-    // 3. Find the smallest element in array
-    static int findSmallest(int[] arr) {
-        int min = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
-            }
-        }
-        return min;
-    }
-
-    // 4. Find the second largest element in array
+    // 3. Find the second largest element in array
     static int findSecondLargest(int[] arr) {
-        int max = Integer.MIN_VALUE;
-        int secondMax = Integer.MIN_VALUE;
+        int max = findLargest(arr);
+
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max) {
-                secondMax = max;
-                max = arr[i];
-            } else if (arr[i] > secondMax && arr[i] != max) {
-                secondMax = arr[i];
+            if (arr[i] == max) {
+                arr[i] = Integer.MIN_VALUE;
             }
         }
+
+        int secondMax = findLargest(arr);
         return secondMax;
     }
 
-    // 5. Find the second smallest element in array
-    static int findSecondSmallest(int[] arr) {
+    // 4. Find the smallest element in array
+    static int findSmallest(int[] arr) {
         int min = Integer.MAX_VALUE;
-        int secondMin = Integer.MAX_VALUE;
+
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < min) {
-                secondMin = min;
                 min = arr[i];
-            } else if (arr[i] < secondMin && arr[i] != min) {
-                secondMin = arr[i];
             }
         }
+
+        // for (int i = 0; i < arr.length; i++) {
+        //     min = Math.min(arr[i], min);
+        // }
+        return min;
+    }
+
+
+
+    // 5. Find the second smallest element in array
+    static int findSecondSmallest(int[] arr) {
+        int min = findSmallest(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == min) {
+                arr[i] = Integer.MAX_VALUE;
+            }
+        }
+
+        int secondMin = findSmallest(arr);
         return secondMin;
     }
 
@@ -307,17 +312,17 @@ public class BasicArrayQuestions {
         int[] arr = { 3, 2, 1, 5, 4 };
         // index :    0  1  2  3  4
 
-        // 1. Sum of all elements in array
-        System.out.println("Sum of all elements: " + sumOfElements(arr));
+        // // 1. Sum of all elements in array
+        // System.out.println("Sum of all elements: " + sumOfElements(arr));
 
-        // 2. Find the largest element in array
-        System.out.println("Largest element: " + findLargest(arr));
+        // // 2. Find the largest element in array
+        // System.out.println("Largest element: " + findLargest(arr));
 
-        // 3. Find the smallest element in array
+        // // 3. Find the second largest element in array
+        // System.out.println("Second largest element: " + findSecondLargest(arr));
+       
+        // 4. Find the smallest element in array
         System.out.println("Smallest element: " + findSmallest(arr));
-
-        // 4. Find the second largest element in array
-        System.out.println("Second largest element: " + findSecondLargest(arr));
 
         // 5. Find the second smallest element in array
         System.out.println("Second smallest element: " + findSecondSmallest(arr));

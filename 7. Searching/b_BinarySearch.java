@@ -1,10 +1,13 @@
 // Notes: https://drive.google.com/file/d/1-_3LdbJOTIcKsc8OI9oDJ5Jv_do38dZv/view
+// Notes: https://drive.google.com/file/d/1Pe9tw2WQLqMNWoIZvEQUs3VNDuv-aR6h/view
+// Notes: https://drive.google.com/file/d/1Jp9HSgqk8Pd3gGfyELmaB2R5Vi3qH8V6/view
+
 
 // Binary Search -> Based on Divide and Conquer
 // Time Complexity: O(log n) [Iterative or Recursive]
 // Space Complexity: O(1) [Iterative] or O(log n) [Recursive]
 
-public class BinarySearch {
+public class b_BinarySearch {
 
     static int binarySearch(int[] arr, int target) { // TC = O(log n), SC = O(1)
         int start = 0;

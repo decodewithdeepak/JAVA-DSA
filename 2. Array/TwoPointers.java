@@ -8,6 +8,7 @@
 // 5. Remove Duplicates from Sorted Array (leetcode 26)
 // 6. Remove Element (leetcode 27)
 // 7. Merge Sorted Array (leetcode 88)
+// 8. Remove Duplicates from Sorted Array II (leetcode 80)
 
 public class TwoPointers {
 
@@ -18,6 +19,7 @@ public class TwoPointers {
         System.out.println();
     }
 
+    // 1. Sort an array consisting of only 0s and 1s
     static void sortZeroesAndOnes(int[] arr) {
         // int n = arr.length;
         // int zeroes = 0;
@@ -62,6 +64,7 @@ public class TwoPointers {
 
     }
 
+    // 2. Move all the integers at the beginning of the array followed by all the odd integers
     static void sortArrayByParity(int[] arr) {
         int i = 0; // left pointer
         int j = arr.length - 1; // right pointer
@@ -84,6 +87,7 @@ public class TwoPointers {
         }
     }
 
+    // 3. Squares of a Sorted Array (leetcode 977)
     static int[] sortedSquares(int[] arr) {
         int n = arr.length;
         int[] squares = new int[n];
@@ -106,6 +110,7 @@ public class TwoPointers {
         return squares;
     }
 
+    // 4. Move Zeroes (leetcode 283)
     static void moveZeroes(int[] arr) {
         int n = arr.length;
         int i = 0; // left pointer
@@ -124,6 +129,7 @@ public class TwoPointers {
         }    
     }
 
+    // 5. Remove Duplicates from Sorted Array (leetcode 26)
     static int removeDuplicates(int[] nums) {
         int n = nums.length;
         int i = 0; // left pointer
@@ -140,6 +146,7 @@ public class TwoPointers {
         return i + 1;
     }
 
+    // 6. Remove Element (leetcode 27)
     static int removeElement(int[] nums, int val) {
         int n = nums.length;
         int i = 0; // left pointer
@@ -156,6 +163,7 @@ public class TwoPointers {
         return i;
     }
 
+    // 7. Merge Sorted Array (leetcode 88)
     static void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1; // left pointer
         int j = n - 1; // right pointer
@@ -179,6 +187,32 @@ public class TwoPointers {
             k--;
         }
     }
+
+    // 8. Remove Duplicates from Sorted Array II (leetcode 80)
+    static int removeDuplicatesII(int[] nums) {
+        int n = nums.length;
+        int i = 0; // left pointer
+        int j = 1; // right pointer
+        int count = 1; // count of the current element
+
+        while (j < n) {
+            if (nums[i] == nums[j]) {
+                count++;
+            } 
+            else {
+                count = 1;
+            }
+
+            if (count <= 2) {
+                i++;
+                nums[i] = nums[j];
+            }
+            j++;
+        }
+
+        return i + 1;
+    }
+
 
     public static void main(String[] args) {
 
@@ -214,7 +248,7 @@ public class TwoPointers {
         // Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
         nums = new int[] {0,1,2,2,3,0,4,2};
         int val = 2;
-        System.out.println(removeElement(nums, val)); // 5\
+        System.out.println(removeElement(nums, val)); // 5
 
         // 88. Merge Sorted Array (leetcode)
         // Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
@@ -224,6 +258,13 @@ public class TwoPointers {
         int n = 3;
         merge(nums1, m, nums2, n);
         printArray(nums1);
+
+
+        // 80. Remove Duplicates from Sorted Array II (leetcode)
+        // Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.
+        nums = new int[] {0,0,1,1,1,1,2,3,3};
+        System.out.println(removeDuplicatesII(nums)); // 7
+
 
     }
 }

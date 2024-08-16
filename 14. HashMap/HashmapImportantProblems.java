@@ -2,10 +2,11 @@
 // 2. Valid Anagram - LeetCode #242 (https://leetcode.com/problems/valid-anagram/)
 // 3. Isomorphic Strings - LeetCode #205 (https://leetcode.com/problems/isomorphic-strings/)
 // 4. Largest SubArray with 0 Sum - GFG (https://www.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1)
+// 5. Longest Sub-Array with Sum K - GFG (https://practice.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1)
 
 import java.util.*;
 
-public class ImportantProblems {
+public class HashmapImportantProblems {
 
     // 1. Two Sum - LeetCode #1
     public static int[] twoSum(int[] nums, int target) {
@@ -108,23 +109,55 @@ public class ImportantProblems {
 
     // 4. Largest SubArray with 0 Sum - GFG
     public static int maxLen(int arr[], int n){
-        Map<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
         // Key - Prefix Sum, Value - Index
-        int sum = 0; // Prefix Sum
+        int prefSum = 0; // Prefix Sum
         int maxLen = 0;
+        map.put(0, -1); // Initialize map with 0 sum at index -1
         for (int i = 0; i < n; i++) {
-            sum += arr[i];
-            if (arr[i] == 0 && maxLen == 0) maxLen = 1;
-            if (sum == 0) maxLen = i + 1;
-            if (map.containsKey(sum)) {
-                maxLen = Math.max(maxLen, i - map.get(sum));
+            prefSum += arr[i];
+            if (map.containsKey(prefSum)) {
+                maxLen = Math.max(maxLen, i - map.get(prefSum));
             } else {
-                map.put(sum, i);
+                map.put(prefSum, i);
             }
         }
         return maxLen;
     }
 
+    // 5. Longest Sub-Array with Sum K - GFG
+    public static int lenOfLongSubarr (int A[], int N, int K) {
+
+        // // Brute Force - O(n^2) - Time Limit Exceeded
+        // int maxLen = 0;
+        // for(int i=0; i<N; i++){
+        //     int sum = 0;
+        //     for(int j=i; j<N; j++){
+        //         sum = sum + A[j];
+        //         if(sum == K){
+        //             maxLen = Math.max(maxLen, j-i+1);
+        //         }
+        //     }
+        // }
+        // return maxLen;
+
+        // Using HashMap - O(n)
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // Key - Prefix Sum, Value - Index
+        int maxLen = 0;
+        int prefSum = 0; // Prefix Sum
+        map.put(0, -1); // Initialize map with 0 sum at index -1
+        for(int i=0; i<N; i++){
+            prefSum = prefSum + A[i];
+            if(map.containsKey(prefSum - K)){
+                maxLen = Math.max(maxLen, i - map.get(prefSum - K));
+            }
+            if(!map.containsKey(prefSum)){
+                map.put(prefSum, i);
+            }
+        }
+        return maxLen;
+    }
 
     public static void main(String[] args) {
         
