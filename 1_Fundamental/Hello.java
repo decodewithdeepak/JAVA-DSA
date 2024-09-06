@@ -7,7 +7,7 @@ public class Hello {
     // Hello - name of the class
     public static void main(String[] args) {
         // public - access modifier
-        // static - keyword used to create static method
+        // static - keyword used to create static method - method can be called without creating an object of the class
         // void - return type of the method
         // main - entry point of the program
         // String[] args - command line arguments - array of strings - args is the name of the array
