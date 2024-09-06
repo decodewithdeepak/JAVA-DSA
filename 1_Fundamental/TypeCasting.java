@@ -1,6 +1,6 @@
 public class TypeCasting {
     public static void main(String[] args) {
-        
+
         // Implicit type casting - Widening conversion/ Automatic type conversion / Lossless conversion
         // Smaller data type to larger data type - No data loss - Automatically done by JVM
         // byte -> short -> int -> long -> float -> double
@@ -33,7 +33,7 @@ public class TypeCasting {
         // Underflow: When the value is smaller than the range of the target data type
 
         // Overflow Example
-        // byte b = 130; // Error - Type mismatch: cannot convert from int to byte
+        // byte b = 130; // Error - Type mismatch: cannot convert from int to byte -> 130 is in range of int
         byte b = (byte) 130; // int to byte
         System.out.println(b); // -128 to 127 -> 130 % 256 = -126
         // why divide by 256? - byte is 8 bits - 2^8 = 256

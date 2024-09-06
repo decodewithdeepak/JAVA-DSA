@@ -32,33 +32,57 @@ public class VariablesAndDatatypes {
         System.out.println(money);
 
         // Primitive datatypes
-        boolean flag = true; // size 1 bit
+        boolean flag = true;
         System.out.println(flag);
 
-        char a = 'A'; // size 2 bytes or 16 bits
+        char a = 'A'; // Single quotes are used for single characters
         System.out.println(a);
 
-        byte b = 126; // size 1 byte or 8 bits 
+        char c = '4';
+        System.out.println(c); // 4
+        // char c = '48'; // Error - Invalid character constant - Single quotes are used for single characters
+        char ch = 48;
+        System.out.println(ch); // 0
+
+        // Total ASCII characters - 128 (0 to 127) => https://www.alpharithms.com/wp-content/uploads/340/ascii-table-alpharithms-2048x1220.jpg
+        // 0 - NULL ... 32 - SPACE
+        // 33 - ! ... 47 - /
+        // 48 - 0 ... 57 - 9
+        // 65 - A ... 90 - Z
+        // 97 - a ... 122 - z
+        // 123 - { ... 127 - DEL
+
+        byte b = 126;
         System.out.println(b);
 
-        short s = 32000; // size 2 bytes or 16 bits
+        short s = 32000;
         System.out.println(s);
 
-        int i = 100000; // size 4 bytes or 32 bits
+        int i = 100000;
         System.out.println(i);
 
-        long l = 1000000000L; // size 8 bytes or 64 bits
+        long l = 1000000000L;
         System.out.println(l);
 
-        float f = 10.2f; // size 4 bytes or 32 bits
+        float f = 10.2f;
         System.out.println(f);
 
-        double d = 10.2; // size 8 bytes or 64 bits
+        double d = 10.2;
         System.out.println(d);
 
         // Non-primitive datatypes
-        String str = "Hello World!"; // size depends on the string
+        String str = "Hello World!"; // Double quotes are used for strings
         System.out.println(str);
+        System.out.println(str.length()); // 12
+
+        int[] arr = {1, 2, 3, 4, 5};
+        for (int x : arr) {
+            System.out.print(x + " "); // 1 2 3 4 5
+        }
+        System.out.println();
+
+        System.out.println(arr.length); // 5
+        
         
 
     }
