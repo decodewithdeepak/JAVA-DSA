@@ -10,7 +10,7 @@ public class Hello {
         // static - keyword used to create static method
         // void - return type of the method
         // main - entry point of the program
-        // String[] args - command line arguments
+        // String[] args - command line arguments - array of strings - args is the name of the array
 
         System.out.println("Hello World!");
 
@@ -18,9 +18,8 @@ public class Hello {
         // out - object of PrintStream class
         // println - method of PrintStream class
 
-
-        // Command to compile the code - javac Hello.java
-        // Command to run the code - java Hello
+        // Command to compile the code - javac Hello.java - Compiles the code and generates Hello.class file (bytecode) - javac is the java compiler
+        // Command to run the code - java Hello - Runs the bytecode using JVM (Java Virtual Machine) - java is the java interpreter
     }
 
 }

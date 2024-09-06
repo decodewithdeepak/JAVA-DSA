@@ -154,4 +154,43 @@ public class I_MediumSinglyLinkedListProblems {
         return null; // no cycle
     }
 
+    // 7. Odd Even Linked List (LeetCode 328)
+    public ListNode oddEvenList(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode evenHead = even;
+
+        while(even != null && even.next != null){
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
+        }
+
+        odd.next = evenHead;
+        return head;
+    }
+
+    // 8. Remove Nth Node From End of List (LeetCode 19)
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+
+        for(int i = 0; i <= n; i++){
+            fast = fast.next;
+        }
+
+        while(fast != null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        slow.next = slow.next.next;
+        return dummy.next;
+    }
+
 }
