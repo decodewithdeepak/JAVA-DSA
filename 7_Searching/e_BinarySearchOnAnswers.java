@@ -117,4 +117,26 @@ public class e_BinarySearchOnAnswers {
         return low;
     }
 
+    // 4. Minimum Days to Make M Bouquets - Leetcode 1482
+
+    // 5. Find the Smallest Divisor Given a Threshold - Leetcode 1283
+
+    // 6. Capacity To Ship Packages Within D Days - Leetcode 1011
+
+    // 7. Kth Missing Positive Number - Leetcode 1539
+
+    public int findKthPositive(int[] arr, int k) {
+        // Binary Search - O(log n)
+        int low = 0, high = arr.length;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] - mid - 1 < k) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low + k;
+    }
+
 }

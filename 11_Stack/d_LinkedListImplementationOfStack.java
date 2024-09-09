@@ -1,6 +1,6 @@
 // Implementation of stack using a linked list
 
-public class LikedListImplementationOfStack {
+public class d_LinkedListImplementationOfStack {
 
     // Stack Class Node
     public static class Node {

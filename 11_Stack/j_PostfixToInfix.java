@@ -5,7 +5,7 @@
 
 import java.util.Stack;
 
-public class PostfixToInfix {
+public class j_PostfixToInfix {
 
     // Method to convert postfix expression to infix expression
     public static String postfixToInfix(String postfix) {

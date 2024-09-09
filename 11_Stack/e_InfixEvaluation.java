@@ -13,7 +13,7 @@
 
 import java.util.Stack;
 
-public class InfixEvaluation {
+public class e_InfixEvaluation {
 
     // Method to return precedence of operator
     public static int precedence(char operator) {

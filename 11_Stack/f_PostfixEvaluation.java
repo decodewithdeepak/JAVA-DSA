@@ -1,20 +1,19 @@
-// Prefix Expression Evaluation Using Stacks
+// Postfix Expression Evaluation Using Stacks
 
-// Example: Prefix: -9/*+5346 -> Prefix Evaluation: 4
+// Example: Postfix: 953+4*6/- -> Postfix Evaluation: 4
 
 import java.util.Stack;
 
-public class PrefixEvaluation {
-   
-    // Method to evaluate prefix expression
-    public static int prefixEvaluation(String prefix) {
+public class f_PostfixEvaluation {
+
+    // Method to evaluate postfix expression
+    public static int postfixEvaluation(String postfix) {
         // Create a stack for operands
         Stack<Integer> val = new Stack<>(); // Value - Operand
 
-        // Iterate through each character of the prefix expression 
-        // from right to left (reverse)
-        for (int i = prefix.length() - 1; i >= 0; i--) {
-            char c = prefix.charAt(i);
+        // Iterate through each character of the postfix expression
+        for (int i = 0; i < postfix.length(); i++) {
+            char c = postfix.charAt(i);
             int ascii = (int) c;
             // '0'->48, '9'->57
 
@@ -27,8 +26,8 @@ public class PrefixEvaluation {
             }
             // If current character is an operator, perform operations
             else {
-                int val1 = val.pop();
                 int val2 = val.pop();
+                int val1 = val.pop();
                 if (c == '+') val.push(val1 + val2);
                 if (c == '-') val.push(val1 - val2);
                 if (c == '*') val.push(val1 * val2);
@@ -39,12 +38,10 @@ public class PrefixEvaluation {
         // Return the result
         return val.pop();
     }
-
+    
     public static void main(String[] args) {
-        // Prefix Expression Evaluation Using Stacks
-        String prefix = "-9/*+5346";
-        System.out.println("Prefix: " + prefix);
-        System.out.println("Result: " + prefixEvaluation(prefix)); // Output: 4
+        String postfix = "953+4*6/-";
+        System.out.println("Postfix Evaluation: " + postfixEvaluation(postfix));
     }
 
 }

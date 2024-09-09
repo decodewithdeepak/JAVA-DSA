@@ -1,6 +1,6 @@
 // Implementation of a Stack using an Array
 
-public class ArrayImplementationOfStack {
+public class c_ArrayImplementationOfStack {
 
     // Class for the stack
     public static class Stack {

@@ -5,16 +5,15 @@
 // Types of array : 1D, 2D, 3D, ...
 // An array can be created using a new keyword in Java.
 
- //Types of array : Single Dimensional Array (1D), Multi Dimensional Array (2D, 3D, ...)
-    // 1. Single Dimensional Array - One dimensional or linear array
-    // 2. Multi Dimensional Array - Two dimensional or matrix array, Three dimensional array, etc.
-
+// Types of array : Single Dimensional Array (1D), Multi Dimensional Array (2D, 3D, ...)
+// 1. Single Dimensional Array - One dimensional or linear array
+// 2. Multi Dimensional Array - Two dimensional or matrix array, Three dimensional array, etc.
 
 import java.util.*;
 
 public class Array {
     public static void main(String[] args) {
-      // Single Dimensional Array (1D)
+        // Single Dimensional Array (1D)
         // One dimensional or linear array
 
         // Syntax:
@@ -36,8 +35,8 @@ public class Array {
         System.out.println("Length of arr2 array is: " + arr2.length);
 
         System.out.println("Traversing through the array:");
-        
-        //Traversing through the array using for loop
+
+        // Traversing through the array using for loop
         for (int i = 0; i < arr2.length; i++) {
             System.out.println(arr2[i]);
         }
@@ -53,7 +52,6 @@ public class Array {
             System.out.println(arr2[x]);
             x++;
         }
-
 
         // 1D array declaration and initialization using Scanner class
         // Taking array input from the user
@@ -77,19 +75,19 @@ public class Array {
 
         // Integer Array
         System.out.println("\n\nInteger Array:");
-        int [] ages = new int[3]; // ages[0] = 0, ages[1] = 0, ages[2] = 0
+        int[] ages = new int[3]; // ages[0] = 0, ages[1] = 0, ages[2] = 0
         ages[0] = 25;
         ages[1] = 30;
         ages[2] = 15;
         // ages[3] = 40; // Error: ArrayIndexOutOfBoundsException
-       
+
         System.out.println(ages[0]);
         System.out.println(ages[1]);
-        System.out.println(ages[2]);    
-    
+        System.out.println(ages[2]);
+
         // Float Array
         System.out.println("\nFloat Array:");
-        float [] weights = new float[3]; // weights[0] = 0.0, weights[1] = 0.0, weights[2] = 0.0
+        float[] weights = new float[3]; // weights[0] = 0.0, weights[1] = 0.0, weights[2] = 0.0
         weights[0] = 25.5f;
         weights[1] = 30.5f;
         weights[2] = 15.5f;
@@ -100,7 +98,7 @@ public class Array {
 
         // Character Array
         System.out.println("\nCharacter Array:");
-        String [] names = new String[3]; // names[0] = null, names[1] = null, names[2] = null
+        String[] names = new String[3]; // names[0] = null, names[1] = null, names[2] = null
         names[0] = "Deepak";
         names[1] = "Krishna";
         names[2] = "Shilpa";
@@ -109,7 +107,6 @@ public class Array {
         System.out.println(names[1]);
         System.out.println(names[2]);
 
-        
     }
 
 }

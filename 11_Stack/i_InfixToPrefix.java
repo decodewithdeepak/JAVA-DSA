@@ -1,11 +1,11 @@
-// Infix to Postfix Conversion Using Stacks
+// Infix to Prefix Conversion Using Stacks
 
-// Example: Infix: 9-(5+3)*4/6 -> Postfix: 953+4*6/-
-// Example: Infix: A*(B+C)/D -> Postfix: ABC+*D/
+// Example: Infix: 9-(5+3)*4/6 -> Prefix: -9/*+5346
+// Example: Infix: A*(B+C)/D -> Prefix: /*A+BCD
 
 import java.util.Stack;
 
-public class InfixToPostfix {
+public class i_InfixToPrefix {
 
     // Method to return precedence of operators
     public static int precedence(char operator) {
@@ -14,22 +14,22 @@ public class InfixToPostfix {
         return 0;
     }
 
-    // Method to convert infix expression to postfix expression
-    public static String infixToPostfix(String str) {
+    // Method to convert infix expression to prefix expression
+    public static String infixToPrefix(String infix) {
         // Create stacks for operands and operators
         Stack<Character> op = new Stack<>(); // Operator
-        Stack<String> val = new Stack<>(); // Postfix Value - Operand
+        Stack<String> val = new Stack<>(); // Prefix Value - Operand
 
         // Iterate through each character of the infix expression
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
+        for (int i = 0; i < infix.length(); i++) {
+            char c = infix.charAt(i);
             int ascii = (int) c;
             // '0'->48, '9'->57, 'a'->97, 'z'->122, 'A'->65, 'Z'->90
 
             // Skip spaces
             if (c == ' ') continue;
 
-            // If character is a digit, push it onto the postfix stack
+            // If character is a digit, push it onto the prefix stack
             if (ascii >= 48 && ascii <= 57 || ascii >= 97 && ascii <= 122 || ascii >= 65 && ascii <= 90) {
                 val.push(c + ""); // "" to convert char to string
             }
@@ -43,7 +43,7 @@ public class InfixToPostfix {
                     String val2 = val.pop();
                     String val1 = val.pop();
                     char operator = op.pop();
-                    val.push(val1 + val2 + operator);
+                    val.push(operator + val1 + val2);
                 }
                 op.pop(); // Remove '('
             }
@@ -53,7 +53,7 @@ public class InfixToPostfix {
                     String val2 = val.pop();
                     String val1 = val.pop();
                     char operator = op.pop();
-                    val.push(val1 + val2 + operator);
+                    val.push(operator + val1 + val2);
                 }
                 op.push(c);
             }
@@ -64,20 +64,21 @@ public class InfixToPostfix {
             String val2 = val.pop();
             String val1 = val.pop();
             char operator = op.pop();
-            val.push(val1 + val2 + operator);
+            val.push(operator + val1 + val2);
         }
 
-        // Return the postfix expression which is at the top of the postfix stack
-        return val.pop();
+        // Return the prefix expression which is at the top of the prefix stack
+        return val.peek();
     }
 
     public static void main(String[] args) {
         String infix = "9-(5+3)*4/6";
         System.out.println("Infix: " + infix);
-        System.out.println("Postfix: " + infixToPostfix(infix)); // Output: 953+4*6/-
+        System.out.println("Prefix: " + infixToPrefix(infix)); // Output: -9/*+5346
 
         infix = "A*(B+C)/D";
         System.out.println("\nInfix: " + infix);
-        System.out.println("Postfix: " + infixToPostfix(infix)); // Output: ABC+*D/
+        System.out.println("Prefix: " + infixToPrefix(infix)); // Output: /*A+BCD
+        
     }
 }

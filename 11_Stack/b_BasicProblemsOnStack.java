@@ -8,7 +8,7 @@
 
 import java.util.Stack;
 
-public class BasicProblemsOnStack {
+public class b_BasicProblemsOnStack {
 
     // 1. Move contents of one stack to another stack in same order
     public static void moveContents(Stack<Integer> s1, Stack<Integer> s2) {

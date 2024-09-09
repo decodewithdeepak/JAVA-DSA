@@ -9,16 +9,16 @@ public class VariablesAndDatatypes {
         // Non-primitive datatypes - String, Array, Class, Interface, etc.
 
         /*
-        Datatype |       Size       | Range
-        --------------------------------------------------
-        boolean  | 1 bit            | true or false
-        byte     | 1 byte (8 bit)   | -128 to 127
-        char     | 2 bytes (16 bit) | 0 to 65,536
-        short    | 2 bytes (16 bit) | -2^15 to 2^15-1
-        int      | 4 bytes (32 bit) | -2^31 to 2^31-1
-        long     | 8 bytes (64 bit) | -2^63 to 2^63-1
-        float    | 4 bytes (32 bit) | 3.4e-038 to 3.4e+038
-        double   | 8 bytes (64 bit) | 1.7e-308 to 1.7e+308
+        Datatype |       Size       | Range                | Default Value
+        ---------------------------------------------------|---------------
+        boolean  | 1 bit            | true or false        | false
+        byte     | 1 byte (8 bit)   | -128 to 127          | 0
+        char     | 2 bytes (16 bit) | 0 to 65,536          | '\u0000' (null)
+        short    | 2 bytes (16 bit) | -2^15 to 2^15-1      | 0
+        int      | 4 bytes (32 bit) | -2^31 to 2^31-1      | 0
+        long     | 8 bytes (64 bit) | -2^63 to 2^63-1      | 0L
+        float    | 4 bytes (32 bit) | 3.4e-038 to 3.4e+038 | 0.0f
+        double   | 8 bytes (64 bit) | 1.7e-308 to 1.7e+308 | 0.0d
         */
 
         // Declaring variables
@@ -82,7 +82,7 @@ public class VariablesAndDatatypes {
         System.out.println();
 
         System.out.println(arr.length); // 5
-        
+
         
 
     }

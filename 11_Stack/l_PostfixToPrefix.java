@@ -5,7 +5,7 @@
 
 import java.util.Stack;
 
-public class PostfixToPrefix {
+public class l_PostfixToPrefix {
 
     // Method to convert postfix expression to prefix expression
     public static String postfixToPrefix(String postfix) {

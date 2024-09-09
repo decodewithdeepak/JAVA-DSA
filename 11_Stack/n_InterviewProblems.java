@@ -15,7 +15,7 @@
 
 import java.util.Stack;
 
-public class InterviewProblems {
+public class n_InterviewProblems {
 
     // 1. Balanced Parentheses - Leetcode 20
     public static boolean isValid(String s) {

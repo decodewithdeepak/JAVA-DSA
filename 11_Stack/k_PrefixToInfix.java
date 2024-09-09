@@ -5,7 +5,7 @@
 
 import java.util.Stack;
 
-public class PrefixToInfix {
+public class k_PrefixToInfix {
 
     // Method to convert prefix expression to infix expression
     public static String prefixToInfix(String prefix) {

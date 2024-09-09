@@ -9,6 +9,7 @@
 // 9. Best Time to Buy and Sell Stock - LeetCode 121 (https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 // 10. Rearrange Array Elements by Sign - LeetCode 2149 (https://leetcode.com/problems/rearrange-array-elements-by-sign/)
 // 11. Rotate Array - LeetCode 189 (https://leetcode.com/problems/rotate-array/)
+// 12. Majority Element II - LeetCode 229 (https://leetcode.com/problems/majority-element-ii/)
 
 import java.util.*;
 
@@ -105,6 +106,40 @@ public class ProblemsOnArray {
 
     // 5. Majority Element - LeetCode 169
     public int majorityElement(int[] nums) {
+
+        // Bruteforce approach - O(n^2) - TLE
+        // int n = nums.length;
+        // for(int i=0; i<n; i++){
+        //     int count = 0;
+        //     for(int j=0; j<n; j++){
+        //         if(nums[i] == nums[j]){
+        //             count++;
+        //         }
+        //     }
+        //     if(count > n/2){
+        //         return nums[i];
+        //     }
+        // }
+        // return -1; // no majority element
+
+        // O(nlogn) approach - Sorting
+        // Arrays.sort(nums);
+        // return nums[nums.length/2];
+
+        // O(n) approach - HashMap
+        // int n = nums.length;
+        // HashMap<Integer, Integer> map = new HashMap<>();
+        // // key -> element, value -> frequency
+        // for(int i=0; i<n; i++){
+        //     map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        // }
+        // for(int key : map.keySet()){
+        //     if(map.get(key) > n/2){
+        //         return key;
+        //     }
+        // }
+        // return -1; // no majority element
+
         // O(n) approach - Moore's Voting Algorithm
         // Rules-
         // 1. Find candidate to be majority element
@@ -113,14 +148,9 @@ public class ProblemsOnArray {
         int n = nums.length;
         int candidate = 0, count = 0;
         for(int i=0; i<n; i++){
-            if(count == 0){ // new candidate
-                candidate = nums[i];
-            }
-            if(candidate == nums[i]){ // same candidate
-                count++;
-            } else { // different candidate
-                count--;
-            }
+            if(count == 0) candidate = nums[i]; // new candidate
+            if(candidate == nums[i]) count++; // same candidate
+            else count--; // different candidate
         }
         return candidate;
     }
@@ -252,5 +282,104 @@ public class ProblemsOnArray {
             end--;
         }
     }
+
+    // 12. Majority Element II - LeetCode 229
+    public List<Integer> majorityElementII(int[] nums) {
+
+        // // Bruteforce approach - O(n^2) - TLE
+        // int n = nums.length;
+        // List<Integer> ans = new ArrayList<>();
+        // for(int i=0; i<n; i++){
+        //     int count = 0;
+        //     for(int j=0; j<n; j++){
+        //         if(nums[i] == nums[j]){
+        //             count++;
+        //         }
+        //     }
+        //     if(count > n/3 && !ans.contains(nums[i])){
+        //         ans.add(nums[i]);
+        //     }
+        // }
+        // return ans;
+
+        // // Using Sorting - O(nlogn)
+        // Arrays.sort(nums);
+        // List<Integer> ans = new ArrayList<>();
+        // int n = nums.length;
+        // int count = 1;
+        // for(int i=1; i<n; i++){
+        //     if(nums[i] == nums[i-1]){
+        //         count++;
+        //     } else {
+        //         if(count > n/3){
+        //             ans.add(nums[i-1]);
+        //         }
+        //         count = 1;
+        //     }
+        // }
+        // if(count > n/3){
+        //     ans.add(nums[n-1]);
+        // }
+        // return ans;
+
+        // // Using HashMap - O(n)
+        // List<Integer> ans = new ArrayList<>();
+        // int n = nums.length;
+        // HashMap<Integer, Integer> map = new HashMap<>();
+        // for(int i=0; i<n; i++){
+        //     map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        // }
+        // for(int key : map.keySet()){
+        //     if(map.get(key) > n/3){
+        //         ans.add(key);
+        //     }
+        // }
+        // return ans;
+        
+        // Extended Moore's Voting Algorithm - O(n)
+        List<Integer> ans = new ArrayList<>();
+        int n = nums.length;
+
+        // Find potential candidates
+        int candidate1 = 0, candidate2 = 0;
+        int count1 = 0, count2 = 0;
+        
+        for (int i = 0; i < n; i++) {
+            // same candidate
+            if (nums[i] == candidate1) {
+                count1++;
+            } else if (nums[i] == candidate2) {
+                count2++;
+            } 
+            // new candidate
+            else if (count1 == 0) {
+                candidate1 = nums[i];
+                count1 = 1;
+            } else if (count2 == 0) {
+                candidate2 = nums[i];
+                count2 = 1;
+            } 
+            // different candidate
+            else {
+                count1--;
+                count2--;
+            }
+        }
+
+        // Verify the candidates
+        count1 = 0;
+        count2 = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == candidate1) count1++;
+            else if (nums[i] == candidate2) count2++;
+        }
+
+        // Add valid candidates to the result
+        if (count1 > n / 3) ans.add(candidate1);
+        if (count2 > n / 3) ans.add(candidate2);
+
+        return ans;
+    }
+    
 
 }

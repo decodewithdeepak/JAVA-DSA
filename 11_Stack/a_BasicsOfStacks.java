@@ -17,7 +17,7 @@
 import java.util.Scanner;
 import java.util.Stack; // Standard Java library for Stack
 
-public class BasicsOfStacks {
+public class a_BasicsOfStacks {
     public static void main(String[] args) {
 
         // Create a stack using the Stack class
