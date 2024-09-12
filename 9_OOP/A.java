@@ -40,6 +40,11 @@ public class A {
         System.out.println(a1.val); // 30
         System.out.println(a2.val); // 30
 
+        // Deep Copy
+        A a3 = new A();
+        a3 = a2.clone(); // why not deep copy
+        a3.val = 40;
+
         // Display method
         // display(); // Error: Cannot make a static reference to the non-static method display() from the type A
         a1.display(); // Hello

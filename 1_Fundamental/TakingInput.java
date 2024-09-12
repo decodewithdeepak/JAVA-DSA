@@ -12,8 +12,8 @@ public class TakingInput {
         // new is used to create an object of Scanner class
         // Scanner() is the constructor of Scanner class
         // sc is the object of Scanner class
-        Scanner sc = new Scanner(System.in);
 
+        Scanner sc = new Scanner(System.in); // Creating an object of Scanner class
 
         // Taking integer input from the user
 
@@ -44,31 +44,46 @@ public class TakingInput {
         //String can be read using next() or nextLine()
         //char can be read using next().charAt(0)
         
-        System.out.println("Enter a character: ");
-        char ch = sc.next().charAt(0);
-        System.out.println("You entered: " + ch);
+        // System.out.println("Enter a character: ");
+        // char ch = sc.next().charAt(0);
+        // System.out.println("You entered: " + ch);
 
 
-        // Sum of user input numbers
-        System.out.println("Enter first number: ");
-        int num1 = sc.nextInt();
-        System.out.println("Enter second number: ");
-        int num2 = sc.nextInt();
+        // // Sum of user input numbers
+        // System.out.println("Enter first number: ");
+        // int num1 = sc.nextInt();
+        // System.out.println("Enter second number: ");
+        // int num2 = sc.nextInt();
 
-        int sum = num1 + num2;
-        System.out.println("Sum of " + num1 + " and " + num2 + " is " + sum);
+        // int sum = num1 + num2;
+        // System.out.println("Sum of " + num1 + " and " + num2 + " is " + sum);
 
 
-        //Calculate simple interest using user input
-        System.out.println("Enter principal: ");
-        int principal = sc.nextInt();
-        System.out.println("Enter rate: ");
-        float rate = sc.nextFloat();
-        System.out.println("Enter time: ");
-        int time = sc.nextInt();
+        // //Calculate simple interest using user input
+        // System.out.println("Enter principal: ");
+        // int principal = sc.nextInt();
+        // System.out.println("Enter rate: ");
+        // float rate = sc.nextFloat();
+        // System.out.println("Enter time: ");
+        // int time = sc.nextInt();
 
-        float simpleInterest = (principal * rate * time) / 100;
-        System.out.println("Simple Interest is: " + simpleInterest);
+        // float simpleInterest = (principal * rate * time) / 100;
+        // System.out.println("Simple Interest is: " + simpleInterest);
+
+
+        // Error handling in user input
+        System.out.println("Enter roll: ");
+        int roll = sc.nextInt();
+        System.out.println("Roll: " + roll);
+
+        sc.nextLine(); // Consuming the newline character
+
+        // nextInt() only reads the integer value and not the newline character (\n)
+        // nextLine() reads the newline character and consumes it 
+
+        System.out.println("Enter name");
+        String name = sc.nextLine();
+        System.out.println("Name: " + name);
 
 
 

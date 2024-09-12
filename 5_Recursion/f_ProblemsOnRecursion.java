@@ -108,10 +108,9 @@ public class f_ProblemsOnRecursion {
         return smallAns + lastDigit * (int) Math.pow(10, noOfDigits); // return statement
     }
 
-    static boolean isPalindrome(int n) { // recursive function
-        if (n < 10) return true; // base case
-        int rev = reverse(n); // self work
-        return n == rev; // return statement
+    static boolean isPalindrome(int n) {
+        if (n < 0) return false;
+        return n == reverse(n);
     }
     
     
