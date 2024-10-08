@@ -5,7 +5,6 @@
 // ✽ Abstract classes define a common template or blueprint for the subclasses.
 // ✽ Abstract classes can have constructors and member variables.
 
-
 public class AbstractClasses {
 
     static abstract class Animal {
