@@ -2,7 +2,7 @@
 
 // Linked List works like a queue. The elements are added at the tail (rear) and removed from the head (front).
 
-public class LinkedListImplementationOfQueue {
+public class c_LinkedListImplementationOfQueue {
     
     // Queue Class Node
     public static class Node {
@@ -36,14 +36,19 @@ public class LinkedListImplementationOfQueue {
         }
 
         // Dequeue elements from the queue - remove elements from the front (head)
-        public void dequeue() {
+        public int dequeue() {
             if (front == null) {
                 System.out.println("Queue is empty");
-            } else {
-                front = front.next;
-                size--;
+                return -1;
             }
+
+            int value = front.data;
+            front = front.next;
+            size--;
+            return value;
         }
+
+        
 
         // Peek the front of the queue - get the front element (head)
         public void peek() {

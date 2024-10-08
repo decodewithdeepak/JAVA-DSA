@@ -33,6 +33,13 @@ public class Loops {
             i++;
         } while (i <= 5);
 
+        // for-each loop
+        System.out.println("\nFor-each loop");
+        int[] arr = { 1, 2, 3, 4, 5 };
+        for (int x : arr) {
+            System.out.println(x);
+        }
+
         // break statement
         System.out.println("\nBreak statement");
         for (i = 1; i <= 5; i++) {

@@ -1,6 +1,6 @@
 // Notes 14 : https://drive.google.com/file/d/1gUwunT_xZErL7SufZ2mQa91ec59SIWQy/view
 
-// 1 Sum of all elements in array'
+// 1 Sum of all elements in array
 // 2 Find the largest element in array
 // 3 Find the smallest element in array
 // 4 Find the second largest element in array

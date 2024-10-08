@@ -13,6 +13,7 @@
 // 12. Excel Sheet Column Number (LeetCode 171) - [https://leetcode.com/problems/excel-sheet-column-number/]
 // 13. Excel Sheet Column Title (LeetCode 168) - [https://leetcode.com/problems/excel-sheet-column-title/]
 // 14. Fizz Buzz (LeetCode 412) - [https://leetcode.com/problems/fizz-buzz/]
+// 15. Count the Number of Consistent Strings (LeetCode 1684) - [https://leetcode.com/problems/count-the-number-of-consistent-strings/]
 
 import java.util.*;
 
@@ -258,5 +259,21 @@ public class d_BasicStringProblems {
         return res;
     }
 
+    // 15. Count the Number of Consistent Strings (LeetCode 1684)
+    public int countConsistentStrings(String allowed, String[] words) {
+        // TC: O(n*m)
+        int count = 0;
+        for (String word : words) {
+            boolean consistent = true;
+            for (char ch : word.toCharArray()) {
+                if (!allowed.contains(String.valueOf(ch))) {
+                    consistent = false;
+                    break;
+                }
+            }
+            if (consistent) count++;
+        }
+        return count;
+    }
 
 }

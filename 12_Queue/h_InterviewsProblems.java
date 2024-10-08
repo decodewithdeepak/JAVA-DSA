@@ -12,7 +12,7 @@
 
 import java.util.*;
 
-public class InterviewsProblems {
+public class h_InterviewsProblems {
 
     // 1. Reverse first k elements of a queue - GFG
     public static Queue<Integer> modifyQueue(Queue<Integer> q, int k) {

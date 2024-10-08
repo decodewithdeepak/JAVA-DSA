@@ -24,29 +24,37 @@ public class MergeSort {
         int n1 = m - l + 1; // size of left sub-array
         int n2 = r - m; // size of right sub-array
 
-        int[] L = new int[n1]; // left sub-array - temp arrays
-        int[] R = new int[n2]; // right sub-array - temp arrays
+        // Create temporary arrays
+        int[] L = new int[n1]; // left sub-array
+        int[] R = new int[n2]; // right sub-array
 
+        // Copy data to temp arrays L[] and R[]
         for (int i = 0; i < n1; i++) L[i] = arr[l + i];
         for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
 
+        // Merge the temp arrays back into arr[l..r]
         int i = 0, j = 0, k = l;
-        while (i < n1 && j < n2)
+        while (i < n1 && j < n2){
             if (L[i] <= R[j]) arr[k++] = L[i++];
             else arr[k++] = R[j++];
-        while (i < n1) 
+        }
+        // Copy the remaining elements of L[], if any
+        while (i < n1) {
             arr[k++] = L[i++];
-        while (j < n2) 
+        }
+        // Copy the remaining elements of R[], if any
+        while (j < n2) {
             arr[k++] = R[j++];
+        }
         
     }
 
     static void mergeSort(int[] arr, int l, int r) { // O(n log n)
         if (l >= r) return; // base condition
         int m = (l + r) / 2; // middle index - mid
-        mergeSort(arr, l, m); 
-        mergeSort(arr, m + 1, r);
-        merge(arr, l, m, r);
+        mergeSort(arr, l, m); // sort left sub-array
+        mergeSort(arr, m + 1, r); // sort right sub-array
+        merge(arr, l, m, r); // merge the sorted sub-arrays
     }
 
     public static void main(String[] args) {

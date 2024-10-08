@@ -6,8 +6,8 @@
 // 1. Built-in / Pre-defined / Standard library Methods Ex. println(), nextInt(), sqrt(), etc.
 // 2. User-defined Methods Ex. main(), sum(), etc.
 
-// Formal parameters(Parameters) - defined during function/method definition.
-// Actual parameters(Arguments) - passed during the function/method call in other Function.
+// Formal parameters (Parameters) - defined during function/method definition.
+// Actual parameters (Arguments) - passed during the function/method call in other Function.
 
 
 import java.util.Scanner;

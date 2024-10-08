@@ -3,6 +3,7 @@
 // 3. Delete Node in a Linked List (Leetcode 237) - [https://leetcode.com/problems/delete-node-in-a-linked-list/]
 // 4. Count Linked List Nodes (GFG) - [https://www.geeksforgeeks.org/problems/count-nodes-of-linked-list/0]
 // 5. Search in Linked List (GFG) - [https://www.geeksforgeeks.org/problems/search-in-linked-list-1664434326/1]
+// 6. Convert Binary Number in a Linked List to Integer (Leetcode 1290) - [https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/]
 
 
 public class G_EasySinglyLinkedListProblems {
@@ -64,5 +65,16 @@ public class G_EasySinglyLinkedListProblems {
         }
         return false;
     }
+
+    // 6. Convert Binary Number in a Linked List to Integer (Leetcode 1290)
+    public static int getDecimalValue(Node head) {
+        int num = 0;
+        while (head != null) {
+            num = num * 2 + head.data;
+            head = head.next;
+        }
+        return num;
+    }
+
 
 }

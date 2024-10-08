@@ -4,6 +4,7 @@
 // 4. Spiral Matrix - LeetCode 54 (https://leetcode.com/problems/spiral-matrix/)
 // 5. Spiral Matrix II - LeetCode 59 (https://leetcode.com/problems/spiral-matrix-ii/)
 // 6. Pascal's Triangle - LeetCode 118 (https://leetcode.com/problems/pascals-triangle/)
+// 7. Convert 1D array into 2D array - LeetCode 2022 (https://leetcode.com/problems/convert-1d-array-into-2d-array/)
 
 
 import java.util.*;
@@ -13,15 +14,15 @@ public class ProblemsOn2DArray {
     // 1. Set Matrix Zeroes - LeetCode 73
     public void setZeroes(int[][] matrix) {
         // Brute Force Approach - TC: O(n*m) | SC: O(n+m)
-        int n = matrix.length; // rows
-        int m = matrix[0].length; // columns
+        int r = matrix.length; // rows
+        int c = matrix[0].length; // columns
 
-        boolean[] row = new boolean[n]; // false
-        boolean[] col = new boolean[m]; // false
+        boolean[] row = new boolean[r]; // false
+        boolean[] col = new boolean[c]; // false
 
         // Store the row and column index with value 0
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
                 if (matrix[i][j] == 0) {
                     row[i] = true;
                     col[j] = true;
@@ -30,8 +31,8 @@ public class ProblemsOn2DArray {
         }
 
         // Iterate over the array and use the row and col arrays to update the elements
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
                 if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
@@ -114,34 +115,34 @@ public class ProblemsOn2DArray {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
         
-        int m = matrix.length;
-        int n = matrix[0].length;
+        int r = matrix.length;
+        int c = matrix[0].length;
 
-        int top = 0, bottom = m - 1; // top and bottom row
-        int left = 0, right = n - 1; // left and right column
+        int top = 0, bottom = r - 1; // top and bottom row
+        int left = 0, right = c - 1; // left and right column
 
         while (top <= bottom && left <= right) {
-            // Traverse top row : left -> right
+            // Traverse top row -> left to right
             for (int j = left; j <= right; j++) {
                 result.add(matrix[top][j]);
             }
             top++;
 
-            // Traverse right column : top -> bottom
+            // Traverse right column -> top to bottom
             for (int i = top; i <= bottom; i++) {
                 result.add(matrix[i][right]);
             }
             right--;
 
-            // Traverse bottom row : right -> left
-            if (top <= bottom) { // to prevent 
+            // Traverse bottom row -> right to left
+            if (top <= bottom) {
                 for (int j = right; j >= left; j--) {
                     result.add(matrix[bottom][j]);
                 }
                 bottom--;
             }
 
-            // Traverse left column : bottom -> top
+            // Traverse left column -> bottom to top
             if (left <= right) {
                 for (int i = bottom; i >= top; i--) {
                     result.add(matrix[i][left]);
@@ -211,6 +212,21 @@ public class ProblemsOn2DArray {
             triangle.add(row);
         }
         return triangle;
+    }
+
+
+    // 7. Convert 1D array into 2D array - LeetCode 2022
+    public int[][] construct2DArray(int[] original, int m, int n) {
+        if (m * n != original.length) return new int[0][0]; // invalid input
+
+        int[][] result = new int[m][n]; // 2D array
+        int idx=0; // index of original array
+        for(int i=0;i<m;i++){ // rows
+            for(int j=0;j<n;j++){ // columns
+                result[i][j]=original[idx++]; // fill the 2D array
+            }  
+        }
+        return result;
     }
 
 }

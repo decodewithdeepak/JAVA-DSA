@@ -131,6 +131,18 @@ public class PrintPatternNumber {
         }
     }
 
+    static void printAlternatePattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                if ((i + j) % 2 == 0)
+                    System.out.print("1");
+                else
+                    System.out.print("0");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("\nLeft Triangle Number Pattern 1");
         // 1
@@ -227,6 +239,26 @@ public class PrintPatternNumber {
         // 1 4 6 4 1
         printPascalTrianglePattern(5);
 
+        System.out.println("\nAlternate 1-0 Pattern");
+        // 1
+        // 01
+        // 101
+        // 0101
+        // 10101
+        printAlternatePattern(5);
+
+        System.out.println("\nDecreasing Number Pattern");
+        // 54321
+        // 4321
+        // 321
+        // 21
+        // 1
+        for (int i = 5; i >= 1; i--) {
+            for (int j = i; j >= 1; j--)
+                System.out.print(j);
+            System.out.println();
+        }
+        
 
 
 

@@ -2,6 +2,7 @@
 // 2. Longest Consecutive Sequence - LeetCode 128 (https://leetcode.com/problems/longest-consecutive-sequence/)
 // 3. Subarray Sum Equals K - LeetCode 560 (https://leetcode.com/problems/subarray-sum-equals-k/)
 // 4. Next Permutation - LeetCode 31 (https://leetcode.com/problems/next-permutation/)
+// 5. Find All Duplicates in an Array - LeetCode 442 (https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 
 import java.util.*;
 
@@ -106,4 +107,56 @@ public class ProblemsOnArray1 {
             end--;
         }
     }
+
+
+    // 5. Find All Duplicates in an Array - LeetCode 442
+    public List<Integer> findDuplicates(int[] nums) {
+        // // Using Sorting - O(nlogn) time, O(1) space
+        // Arrays.sort(nums);
+        // List<Integer> dup = new ArrayList<>();
+        // for(int i=1; i<nums.length; i++){
+        //     if(nums[i] == nums[i-1]){
+        //         dup.add(nums[i]);
+        //     }
+        // }
+        // return dup;
+
+        // // Using Hashing - O(n) time, O(n) space
+        // List<Integer> dup = new ArrayList<>();
+        // HashMap<Integer, Integer> map = new HashMap<>();
+        // for(int num : nums){
+        //     map.put(num, map.getOrDefault(num, 0) + 1);
+        // }
+        // for(int num : map.keySet()){
+        //     if(map.get(num) == 2){
+        //         dup.add(num);
+        //     }
+        // }
+        // return dup;
+
+        // // Using HashSet - O(n) time, O(n) space
+        // List<Integer> dup = new ArrayList<>();
+        // HashSet<Integer> set = new HashSet<>();
+        // for(int num : nums){
+        //     if(set.contains(num)){
+        //         dup.add(num);
+        //     }
+        //     set.add(num);
+        // }
+        // return dup;
+
+        // Using Negation - O(n) time, O(1) space
+        List<Integer> dup = new ArrayList<>();
+        for(int i = 0; i < nums.length; i++){
+            int idx = Math.abs(nums[i]) - 1; // index of no nums[i]
+            if(nums[idx] < 0){ // if no is already negated then it is duplicate
+                dup.add(Math.abs(nums[i])); // add duplicate no to list
+            }
+            nums[idx] = -nums[idx]; // mark no as visited by negating
+        }
+        return dup;
+
+    }
+
+
 }

@@ -1,6 +1,6 @@
 // Implementation of Simple Queue using an Array
 
-public class ArrayImplementationOfQueue {
+public class b_ArrayImplementationOfQueue {
 
     // Class for the queue
     public static class Queue {

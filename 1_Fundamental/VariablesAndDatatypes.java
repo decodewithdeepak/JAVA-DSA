@@ -21,6 +21,9 @@ public class VariablesAndDatatypes {
         double   | 8 bytes (64 bit) | 1.7e-308 to 1.7e+308 | 0.0d
         */
 
+        // Size of char is 2 bytes in JAVA because it stores Unicode characters (16-bit characters)
+        // Size of char is 1 byte in C/C++ because it stores ASCII characters (8-bit characters)
+
         // Declaring variables
         int money;
         // Assigning values to variables

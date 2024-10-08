@@ -21,7 +21,7 @@ public class Questions {
             int gcd = 1;
             int smaller = num < den ? num : den;
             for (int i = 2; i <= smaller; i++) {
-                if (num % i == 0 && den % i == 0) {
+                if (num % i == 0 && den % i == 0) { 
                     gcd = i;
                 }
             }

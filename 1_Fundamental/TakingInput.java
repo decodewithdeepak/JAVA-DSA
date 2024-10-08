@@ -7,13 +7,14 @@ import java.util.Scanner;
 
 public class TakingInput {
     public static void main(String[] args) {
-        // Scanner class is used to take input from the user
-        // System.in is the standard input stream
-        // new is used to create an object of Scanner class
-        // Scanner() is the constructor of Scanner class
-        // sc is the object of Scanner class
 
         Scanner sc = new Scanner(System.in); // Creating an object of Scanner class
+        // Scanner - class in java.util package to take input from user
+        // sc- object of Scanner class
+        // new - create an object of Scanner class
+        // Scanner() - constructor of Scanner class
+        // System.in - standard input stream (keyboard)
+
 
         // Taking integer input from the user
 

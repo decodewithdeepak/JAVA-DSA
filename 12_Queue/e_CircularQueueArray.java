@@ -1,6 +1,6 @@
 // Implementation of Circular Queue using Array
 
-public class CircularQueueArray{
+public class e_CircularQueueArray{
 
     // Class for the queue
     public static class Queue {

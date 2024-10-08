@@ -183,6 +183,60 @@ public class PrintPatternStar {
         }
     }
 
+    static void printLPattern(int n) {
+        // O(n^2) method
+        // for (int i = 1; i <= n; i++) {
+        //     for (int j = 1; j <= n; j++) {
+        //         if (j == 1 || i == n)
+        //             System.out.print("*");
+        //         else
+        //             System.out.print(" ");
+        //     }
+        //     System.out.println();
+
+        // O(n) method
+        for (int i = 1; i<= n-1; i++) { // Print the vertical part
+            System.out.println("*");
+        }
+
+        for (int j = 1; j <= n; j++) { // Print the horizontal part
+            System.out.print("*");
+        }
+    }
+
+
+    static void printSPattern(int n) {
+        // Print the top row
+        for (int i = 0; i < n; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    
+        // Print the upper middle rows
+        for (int i = 1; i < n / 2; i++) {
+            System.out.println("*");
+        }
+    
+        // Print the middle row
+        for (int i = 0; i < n; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    
+        // Print the lower middle rows
+        for (int i = n / 2 + 1; i < n - 1; i++) {
+            for (int j = 0; j < n - 1; j++) {
+                System.out.print(" ");
+            }
+            System.out.println("*");
+        }
+    
+        // Print the bottom row
+        for (int i = 0; i < n; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
 
     static void printZPattern(int n) {
         for (int i = 1; i <= n; i++) { // Print the top line
@@ -439,6 +493,23 @@ public class PrintPatternStar {
         //    * *
         //     *
         printHollowDiamondPattern(5);
+
+
+        System.out.println("\nL Pattern: ");
+        // *
+        // *
+        // *
+        // *
+        // *****
+        printLPattern(5);
+
+        System.out.println("\nS Pattern: ");
+        // *****
+        // *
+        // *****
+        //     *
+        // *****
+        printSPattern(5);
 
 
         System.out.println("\nZ Pattern: ");

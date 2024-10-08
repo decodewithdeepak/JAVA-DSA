@@ -1,6 +1,6 @@
 // Implement a Circular Queue using Linked List
 
-public class CircularQueueLinkedList {
+public class f_CircularQueueLinkedList {
 
     // Queue Class Node
     public static class Node {

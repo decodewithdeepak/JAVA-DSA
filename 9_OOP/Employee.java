@@ -23,6 +23,7 @@ public class Employee {
     public void setAge(int age) { // Setter
         this.age = age;
         // this keyword is used to refer to the current object
+        // used to differentiate between class instance variable and method parameter
     }
 
     public void change() {

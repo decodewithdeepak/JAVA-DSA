@@ -1,4 +1,5 @@
 // Implementation of stack using a linked list
+// Stack - LIFO (Last In First Out)
 
 public class d_LinkedListImplementationOfStack {
 
@@ -16,7 +17,7 @@ public class d_LinkedListImplementationOfStack {
 
     // Class for the stack
     public static class Stack {
-        private Node top = null; // Pointer to the top of the stack
+        private Node top = null; // Pointer to top of the stack (head of linked list)
         private int size = 0; // Size of the stack
 
         // Push elements into the stack
@@ -32,12 +33,15 @@ public class d_LinkedListImplementationOfStack {
         }
 
         // Pop elements from the stack
-        public void pop() {
+        public int pop() {
             if (top == null) {
                 System.out.println("Stack is empty");
+                return -1;
             } else {
+                int value = top.data;
                 top = top.next;
                 size--;
+                return value;
             }
         }
 

@@ -1,7 +1,13 @@
 // Notes: https://drive.google.com/file/d/1FoIV8VADMjIOQU6Yf6_kSrEOH4-PGun2/view
 
+// Class - A blueprint or template for creating objects
+// Object - An instance of a class
+// Attributes - Data members of a class (variables) - State or Characteristics of an object
+// Methods - Functions defined in a class - Behavior or Actions of an object
+
 public class OOPsBasics {
 
+    // static class - Class inside a class
     public static class Car {
         String name; // Attributes
         String color;

@@ -5,7 +5,7 @@
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class DoubleEndedQueue {
+public class g_DoubleEndedQueue {
 
     public static void main(String[] args) {
         Deque <Integer> dq = new LinkedList<>();

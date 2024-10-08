@@ -15,7 +15,7 @@ import java.util.LinkedList; // Class
 import java.util.Queue; // Interface
 import java.util.Scanner;
 
-public class BasicsOfQueue {
+public class a_BasicsOfQueue {
     public static void main(String[] args) {
     
         // Create a queue using the Queue class

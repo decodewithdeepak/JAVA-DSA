@@ -10,6 +10,8 @@
 // 10. Rearrange Array Elements by Sign - LeetCode 2149 (https://leetcode.com/problems/rearrange-array-elements-by-sign/)
 // 11. Rotate Array - LeetCode 189 (https://leetcode.com/problems/rotate-array/)
 // 12. Majority Element II - LeetCode 229 (https://leetcode.com/problems/majority-element-ii/)
+// 13. Product of Array Except Self - LeetCode 238 (https://leetcode.com/problems/product-of-array-except-self/)
+
 
 import java.util.*;
 
@@ -381,5 +383,65 @@ public class ProblemsOnArray {
         return ans;
     }
     
+
+    // 13. Product of Array Except Self - LeetCode 238
+    public int[] productExceptSelf(int[] nums) {
+        // // Bruteforce approach - TC : O(n^2), SC : O(n) - TLE
+        // int n = nums.length;
+        // int ans[] = new int[n];
+        
+        // for(int i = 0; i < n; i++) {
+        //     int pro = 1;
+        //     for(int j = 0; j < n; j++) {
+        //         if(i == j) continue;
+        //         pro *= nums[j];
+        //     }
+        //     ans[i] = pro;
+        // }
+        
+        // return ans;
+
+        // // Using Sufix and Prefix Arrays - TC : O(n), SC : O(n)
+        // int n = nums.length;
+        // int pre[] = new int[n];
+        // int suff[] = new int[n];
+        
+        // pre[0] = 1;
+        // for(int i = 1; i < n; i++) {
+        //     pre[i] = pre[i - 1] * nums[i - 1];
+        // }
+
+        // suff[n - 1] = 1;
+        // for(int i = n - 2; i >= 0; i--) {
+        //     suff[i] = suff[i + 1] * nums[i + 1];
+        // }
+
+        // int ans[] = new int[n];
+        // for(int i = 0; i < n; i++) {
+        //     ans[i] = pre[i] * suff[i];
+        // }
+
+        // return ans;
+
+        // Using Constant Space - TC : O(n), SC : O(1)
+        int n = nums.length;
+        int ans[] = new int[n];
+
+        ans[0] = 1;
+        for(int i = 1; i < n; i++) {
+            ans[i] = ans[i - 1] * nums[i - 1];
+        }
+
+        int right = 1;
+        for(int i = n - 1; i >= 0; i--) {
+            ans[i] = ans[i] * right;
+            right = right * nums[i];
+        }
+
+        return ans;
+    }
+
+
+
 
 }

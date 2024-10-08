@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-public class h_GenericTreesQue {
+public class k_GenericTreesQue {
 
     // Node class of a generic tree
     public static class Node {
