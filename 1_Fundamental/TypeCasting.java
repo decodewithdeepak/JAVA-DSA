@@ -4,6 +4,7 @@ public class TypeCasting {
         // Implicit type casting - Widening conversion/ Automatic type conversion / Lossless conversion
         // Smaller data type to larger data type - No data loss - Automatically done by JVM
         // byte -> short -> int -> long -> float -> double
+        // <--INTEGER TYPES-------------><--FLOATING POINT TYPES-->
 
         int i = 100;
         long l = i; // int to long

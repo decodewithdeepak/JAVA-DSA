@@ -1,3 +1,5 @@
+// Method chaining is a technique in which multiple methods are called in a single statement.
+
 public class MethodChaining {
     public static void main(String[] args) {
         MyClass obj = new MyClass();

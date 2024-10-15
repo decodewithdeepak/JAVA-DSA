@@ -1,16 +1,18 @@
 // Interface - 
-// ✽ Interface is a reference type in Java. It is similar to a class. It is a collection of abstract methods.
-// ✽ Interface is used to specify methods that a class must implement but do not provide method bodies.
-// ✽ Interface 
-// ✽ Interface can contain abstract methods, default methods, static methods, and constants.
-// ✽ Interfaces cannot be instantiated.
-// ✽ Interface does not contain any constructors.
-// ✽ Interface can extend multiple interfaces.
-// ✽ Inteface can be implemented by a class using the 'implements' keyword.
-// ✽ Interfaces are used to achieve multiple inheritance in Java.
-// ✽ Interface is used to provide a way to achieve abstraction by specifing what a class must do and not how.
-// ✽ A class implements an interface, thereby inheriting the abstract methods of the interface.
-// ✽ A class can implement multiple interfaces.
+// ✽ An interface in Java is a blueprint of a class that contains abstract methods (by default) and constant variables. 
+// ✽ A class that implements an interface must provide implementations for all the abstract methods defined in the interface using the 'implements' keyword and overriding the methods.
+// ✽ Interfaces are used to achieve abstraction and multiple inheritance in Java.
+// ✽ Interfaces are declared using the 'interface' keyword.
+
+// Characteristics of Interface:
+// ✽ All methods in an interface are abstract unless declared as default or static.
+// ✽ Interfaces cannot be instantiated that means we cannot create objects of an interface directly.
+// ✽ Interfaces do not contain constructors.
+// ✽ All variables in an interface are public, static, and final by default.
+// ✽ A class cannot extend multiple classes due to the diamond problem, but it can implement multiple interfaces.
+// ✽ An interface can extend multiple interfaces.
+// ✽ Interfaces can have methods with a body using default or static keywords.
+
 
 public class Interfaces  {
 

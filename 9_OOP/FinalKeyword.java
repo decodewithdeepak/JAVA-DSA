@@ -1,5 +1,5 @@
 // Final Keyword- Used to prevent inheritance, method overriding, and reassignment of variables.
-// ✽ Final class - A class that cannot be subclassed.
+// ✽ Final class - A class that cannot be subclassed or inherited.
 // ✽ Final method - A method that cannot be overridden by the subclass.
 // ✽ Final variable - A variable that cannot be reassigned after initialization.
 

@@ -3,6 +3,11 @@
 // 3. Subarray Sum Equals K - LeetCode 560 (https://leetcode.com/problems/subarray-sum-equals-k/)
 // 4. Next Permutation - LeetCode 31 (https://leetcode.com/problems/next-permutation/)
 // 5. Find All Duplicates in an Array - LeetCode 442 (https://leetcode.com/problems/find-all-duplicates-in-an-array/)
+// 6. Two Sum - LeetCode 1 (https://leetcode.com/problems/two-sum/)
+// 15. 3Sum - LeetCode 15 (https://leetcode.com/problems/3sum/)
+// 16. 3Sum Closest - LeetCode 16 (https://leetcode.com/problems/3sum-closest/)
+// 18. 4Sum - LeetCode 18 (https://leetcode.com/problems/4sum/)
+// 26. Remove Duplicates from Sorted Array - LeetCode 26 (https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 import java.util.*;
 
@@ -156,6 +161,47 @@ public class ProblemsOnArray1 {
         }
         return dup;
 
+    }
+
+    // 6. Two Sum - LeetCode 1
+    public int[] twoSum(int[] nums, int target) {
+        // Brute Force Approach - O(n^2)
+        // int n = nums.length;
+        // for(int i=0; i<n; i++){
+        //     for(int j=i+1; j<n; j++){
+        //         if(nums[i] + nums[j] == target){
+        //             return new int[]{i, j};
+        //         }
+        //     }
+        // }
+        // return null;
+
+        // Using Hashing - O(n) time, O(n) space
+        int n = nums.length;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // Key - number nums[i], Value - index i
+        for(int i=0; i<n; i++){
+            int diff = target - nums[i];
+            if(map.containsKey(diff)){
+                return new int[]{map.get(diff), i};
+            }
+            map.put(nums[i], i);
+        }
+        return null;
+    }
+
+
+    // 26. Remove Duplicates from Sorted Array - LeetCode 26
+    public int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        int i = 0;
+        for(int j=1; j<n; j++){
+            if(nums[j] != nums[i]){
+                nums[i+1] = nums[j];
+                i++;
+            }
+        }
+        return i+1;
     }
 
 

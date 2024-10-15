@@ -1,8 +1,8 @@
-// Multiple inheritance in JAVA-
+// Multiple inheritance in JAVA -
 // ✽ Multiple inheritance is a feature in which a class can inherit properties of more than one class.
 // ✽ JAVA does not support multiple inheritance with classes due to the Diamond Problem.
 // ✽ However, multiple inheritance can be achieved using interfaces.
-// ✽ A class can implement multiple interfaces.
+// ✽ A class can implement multiple interfaces giving the effect of multiple inheritance.
 
 public class MultipleInheritance {
     interface Animal {
@@ -14,7 +14,7 @@ public class MultipleInheritance {
         void run();
     }
 
-    static class Dog implements Animal, Mammal {
+    static class Dog implements Animal, Mammal { // -> interface inheritance
         @Override // -> optional but recommended
         public void eat() {
             System.out.println("Dog is eating");

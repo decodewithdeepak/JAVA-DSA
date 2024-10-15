@@ -1,15 +1,15 @@
-// Aggregation -In aggregation, the contained objects can exist independently.
+// Aggregation -
 
-// ✽ A weaker form of association where one class is a part of another class, but both can exist independently. 
-// ✽ Relationship where the child can exist independently of the parent.
+// ✽ Aggregation is a relationship where one class (container) contains references to another class (contained) and the contained class can exist independently of the container class.
+// ✽ This indicates a weaker form of association between the classes.
 // ✽ Represents a "Has-A" relationship with shared ownership.
 // ✽ Unidirectional association.
 
 
 // Aggregation Example: Person has an Address
-// Person has an Address, but the address can exist independently.
+// Person class has an Address, but the Address can exist independently of the Person.
 
-class Address { // Contained class
+class Address { // Contained class OR Component class
     String city;
     
     Address(String city) {

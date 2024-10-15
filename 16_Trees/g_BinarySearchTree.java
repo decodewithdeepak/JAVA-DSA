@@ -8,10 +8,21 @@
 //   (ii) Every node to the right of a node is greater than the node.
 
 // Binary Search Tree (BST) = Binary Tree + Binary Search Property
-// ★ Inorder traversal of BST gives elements in sorted order.
+// ★ Inorder traversal of BST gives elements in strictly increasing order.
 // Searching, Insertion and Deletion in BST can be done in O(h) time where h is the height of the tree.
-// Worst case - O(n) - Skewed tree | Best case - O(logn) - Balanced tree
-// Always - O(h) - Average case
+// Worst case - O(n) - Skewed tree | Best case - O(logn) - Balanced tree (n = number of nodes)
+// Always - O(h) - Average case (h = height of the tree)
+
+// Properties of BST:
+// 1. Inorder traversal of BST gives elements in sorted order (strictly increasing).
+// 2. The left subtree of a node contains only nodes with keys less than the node's key.
+// 3. The right subtree of a node contains only nodes with keys greater than the node's key.
+// 4. Both the left and right subtrees must also be BSTs.
+// 5. There must be no duplicate nodes.
+// 6. The maximum number of nodes at level 'L' of a BST is 2^L.
+// 7. The maximum number of nodes in a BST of height 'h' is 2^(h+1) - 1.
+// 8. Left lowermost node is the minimum node in the BST.
+// 9. Right lowermost node is the maximum node in the BST.
 
 // Example of BST:
 //          5

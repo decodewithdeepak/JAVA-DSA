@@ -1,8 +1,9 @@
-// Memory Structure in Java - Stack, Heap, Class Area, Method Area
-// Stack Memory - Local variables, method calls, reference variables
-// Heap Memory - Objects, instance variables
-// Class Area - Class level data, static variables
-// Method Area - Method level data, static methods
+// Memory Structure in Java - Stack, Heap, Class (Method) Area, PC Register, Native Method Stack
+// Stack Memory - Primitive datatypes, Local variables, method calls, reference variables (Static memory allocation)
+// Heap Memory - Derived datatypes, Objects via new keyword, instance variables (Dynamic memory allocation)
+// Class (Method) Area - Class level data, static variables, method code, runtime constant pool
+// PC Register - Program Counter Register, holds the address of the currently executing instruction
+// Native Method Stack - Native method information and memory for native methods (C, C++ code)
 
 public class MemoryStructure {
     public static void main(String[] args) {

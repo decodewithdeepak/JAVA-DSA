@@ -7,8 +7,8 @@
 // static class is used to run the class in a single file without interfering with other classes in the same package.
 
 // this keyword - used to refer current class instance variable (to avoid confusion between class instance variable and method parameter)
-// final keyword - used to make constant (cannot change value of final variable)
-// static keyword - used to make class level variable | used to call method without creating object
+// final keyword - used to make constant (cannot change value of final variable) | used to prevent method overriding | used to prevent inheritance
+// static keyword - used to make class level variable | used to call method without creating object | used to make static block | used to make static nested class
 
 
 public class StaticKeyword {

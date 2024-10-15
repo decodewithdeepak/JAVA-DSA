@@ -1,7 +1,7 @@
 // Method Overriding -
-// ✽ Childclass provides a specific implementation of a method that is already provided by its parent class.
+// ✽ Child class provides a specific implementation of a method that is already provided by its parent class.
 // ✽ Methods of the child class have the same name, same return type, and same parameters as a method in the parent class.
-// ✽ @Override annotation is used to override a method.
+// ✽ @Override annotation is used to override a method. It is optional but recommended for better code readability.
 // ✽ Runtime polymorphism (Dynamic method dispatch) - Dynamic or late binding
 // ✽ Runtime - Method call is resolved at runtime.
 
