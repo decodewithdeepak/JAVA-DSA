@@ -3,10 +3,11 @@
 // 3. Isomorphic Strings - LeetCode #205 (https://leetcode.com/problems/isomorphic-strings/)
 // 4. Largest SubArray with 0 Sum - GFG (https://www.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1)
 // 5. Longest Sub-Array with Sum K - GFG (https://practice.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1)
+// 6. Count frequency of array elements - GFG (https://www.geeksforgeeks.org/problems/frequency-of-array-elements-1587115620/0)
 
 import java.util.*;
 
-public class HashmapImportantProblems {
+public class HashMapProblems {
 
     // 1. Two Sum - LeetCode #1
     public static int[] twoSum(int[] nums, int target) {
@@ -157,6 +158,26 @@ public class HashmapImportantProblems {
             }
         }
         return maxLen;
+    }
+
+    // 6. Count frequency of array elements - GFG
+    public static void frequencyCount(int arr[], int N, int P) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // Key - Element, Value - Frequency
+        for (int i = 0; i < N; i++) {
+            if (map.containsKey(arr[i])) {
+                map.put(arr[i], map.get(arr[i]) + 1);
+            } else {
+                map.put(arr[i], 1);
+            }
+        }
+        for (int i = 0; i < N; i++) {
+            if (map.containsKey(i + 1)) {
+                arr[i] = map.get(i + 1);
+            } else {
+                arr[i] = 0;
+            }
+        }
     }
 
     public static void main(String[] args) {

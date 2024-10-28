@@ -4,10 +4,12 @@
 // 4. Next Permutation - LeetCode 31 (https://leetcode.com/problems/next-permutation/)
 // 5. Find All Duplicates in an Array - LeetCode 442 (https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 // 6. Two Sum - LeetCode 1 (https://leetcode.com/problems/two-sum/)
-// 15. 3Sum - LeetCode 15 (https://leetcode.com/problems/3sum/)
-// 16. 3Sum Closest - LeetCode 16 (https://leetcode.com/problems/3sum-closest/)
-// 18. 4Sum - LeetCode 18 (https://leetcode.com/problems/4sum/)
-// 26. Remove Duplicates from Sorted Array - LeetCode 26 (https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+// 7. Two Sum II - Input Array is Sorted - LeetCode 167 (https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+
+// 8. 3Sum - LeetCode 15 (https://leetcode.com/problems/3sum/)
+// 9. 3Sum Closest - LeetCode 16 (https://leetcode.com/problems/3sum-closest/)
+// 10. 4Sum - LeetCode 18 (https://leetcode.com/problems/4sum/)
+
 
 import java.util.*;
 
@@ -183,26 +185,137 @@ public class ProblemsOnArray1 {
         for(int i=0; i<n; i++){
             int diff = target - nums[i];
             if(map.containsKey(diff)){
-                return new int[]{map.get(diff), i};
+                return new int[]{i, map.get(diff)};
             }
             map.put(nums[i], i);
         }
         return null;
     }
 
+    // 7. Two Sum II - Input Array is Sorted - LeetCode 167
+    public int[] twoSumII(int[] numbers, int target) {
+        // Using Two Pointers - O(n) time, O(1) space
+        int n = numbers.length;
+        int i = 0, j = n-1;
+        while(i<j){
+            int sum = numbers[i] + numbers[j];
+            if(sum == target) return new int[] {i+1, j+1}; // 1-based index
+            if (sum<target) i++;
+            else j--;
+        }
+        return null;
+    }
 
-    // 26. Remove Duplicates from Sorted Array - LeetCode 26
-    public int removeDuplicates(int[] nums) {
-        int n = nums.length;
-        int i = 0;
-        for(int j=1; j<n; j++){
-            if(nums[j] != nums[i]){
-                nums[i+1] = nums[j];
-                i++;
+    // 8. 3Sum - LeetCode 15
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+
+        Arrays.sort(nums); 
+        // so that we can appply two pointer technique and skip duplicates
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            // a+b+c = 0 => b+c = -a = target
+            if (i == 0 || nums[i] != nums[i - 1]) { // skip duplicate a
+                int low = i + 1;
+                int high = nums.length - 1;
+                int target = -nums[i];
+
+                while (low < high) {
+                    int sum = nums[low] + nums[high];
+                    if (sum == target) {
+                        List<Integer> list = new ArrayList<>();
+                        list.add(nums[i]);
+                        list.add(nums[low]);
+                        list.add(nums[high]);
+                        res.add(list);
+
+                        // skip duplicate b
+                        while (low < high && nums[low] == nums[low + 1]) low++;
+                        // skip duplicate c
+                        while (low < high && nums[high] == nums[high - 1]) high--;
+
+                        low++;
+                        high--;
+                    } else if (sum < target) {
+                        low++;
+                    } else {
+                        high--;
+                    }
+                }
             }
         }
-        return i+1;
+
+        return res;
     }
+
+    // 9. 3Sum Closest - LeetCode 16
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int closestSum = nums[0] + nums[1] + nums[2];
+
+        for(int i=0; i<n-2; i++){
+            int low = i+1;
+            int high = n-1;
+
+            while(low < high){
+                int sum = nums[i] + nums[low] + nums[high];
+                // if sum matches target then return sum
+                if(sum == target) return sum;
+                // if sum is closer to target then update closestSum
+                if(Math.abs(sum - target) < Math.abs(closestSum - target)){
+                    closestSum = sum;
+                }
+                // if sum is less than target then move low pointer
+                if(sum < target) low++;
+                // if sum is greater than target then move high pointer
+                else high--;
+            }
+        }
+        return closestSum;
+    }
+
+    // 10. 4Sum - LeetCode 18
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
+        
+        // a+b+c+d = target => b+c+d = target-a => c+d = target-a-b = newTarget
+
+        for(int i=0; i<nums.length-3; i++){
+            if(i>0 && nums[i] == nums[i-1]) continue; // skip duplicate a
+            for(int j=i+1; j<nums.length-2; j++){
+                if(j>i+1 && nums[j] == nums[j-1]) continue; // skip duplicate b
+                int low = j+1;
+                int high = nums.length-1;
+                long newTarget = (long) target - nums[i] - nums[j];
+
+                while(low < high){
+                    int sum = nums[low] + nums[high];
+                    if(sum == newTarget){
+                        List<Integer> list = new ArrayList<>();
+                        list.add(nums[i]);
+                        list.add(nums[j]);
+                        list.add(nums[low]);
+                        list.add(nums[high]);
+                        res.add(list);
+
+                        while(low < high && nums[low] == nums[low+1]) low++; // skip duplicate c
+                        while(low < high && nums[high] == nums[high-1]) high--; // skip duplicate d
+
+                        low++;
+                        high--;
+                    } else if(sum < newTarget){
+                        low++;
+                    } else {
+                        high--;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
 
 
 }

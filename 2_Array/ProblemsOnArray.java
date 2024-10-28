@@ -11,6 +11,8 @@
 // 11. Rotate Array - LeetCode 189 (https://leetcode.com/problems/rotate-array/)
 // 12. Majority Element II - LeetCode 229 (https://leetcode.com/problems/majority-element-ii/)
 // 13. Product of Array Except Self - LeetCode 238 (https://leetcode.com/problems/product-of-array-except-self/)
+// 14. Remove Duplicates from Sorted Array - LeetCode 26 (https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+// 15. Remove Element - LeetCode 27 (https://leetcode.com/problems/remove-element/)
 
 import java.util.*;
 
@@ -438,6 +440,34 @@ public class ProblemsOnArray {
         }
 
         return ans;
+    }
+
+    
+    // 14. Remove Duplicates from Sorted Array - LeetCode 26
+    public int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        int i = 0;
+        for(int j=1; j<n; j++){
+            if(nums[j] != nums[i]){
+                nums[i+1] = nums[j];
+                i++;
+            }
+        }
+        return i+1;
+    }
+
+
+    // 15. Remove Element - LeetCode 27
+    public int removeElement(int[] nums, int val) {
+        int n = nums.length;
+        int i = 0;
+        for(int j=0; j<n; j++){
+            if(nums[j] != val){
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i;
     }
 
 

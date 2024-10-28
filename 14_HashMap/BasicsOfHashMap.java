@@ -108,7 +108,7 @@ public class BasicsOfHashMap {
 
         // Add key-value pairs -> put(key, value)
         hm.put("Deepak", 21);
-        hm.put("Sheetal", 20);
+        hm.put("Sanjay", 20);
         hm.put("Divya", 17);
         hm.put("Sapna", 13);
         hm.put("Ritvik", 10);
