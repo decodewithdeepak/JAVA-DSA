@@ -1,6 +1,6 @@
 // 1. Array Leaders - GFG (https://www.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1)
 // 2. Longest Consecutive Sequence - LeetCode 128 (https://leetcode.com/problems/longest-consecutive-sequence/)
-// 3. Subarray Sum Equals K - LeetCode 560 (https://leetcode.com/problems/subarray-sum-equals-k/)
+// 3. Count Subarrays with Sum Equals K - LeetCode 560 (https://leetcode.com/problems/subarray-sum-equals-k/)
 // 4. Next Permutation - LeetCode 31 (https://leetcode.com/problems/next-permutation/)
 // 5. Find All Duplicates in an Array - LeetCode 442 (https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 // 6. Two Sum - LeetCode 1 (https://leetcode.com/problems/two-sum/)
@@ -52,7 +52,7 @@ public class ProblemsOnArray1 {
         return maxStreak;
     }
 
-    // 3. Subarray Sum Equals K - LeetCode 560
+    // 3. Count Subarrays with Sum Equals K - LeetCode 560
     public int subarraySum(int[] nums, int k) {
         // // Brute Force Approach- O(n^2)
         // int n = nums.length;
@@ -84,27 +84,35 @@ public class ProblemsOnArray1 {
         return count;
     }
 
-    // 4. Next Permutation - LeetCode 31    
+    // 4. Next Permutation - LeetCode 31  
     public void nextPermutation(int[] nums) {
         int n = nums.length;
-        int i = n-2;
-        while(i>=0 && nums[i] >= nums[i+1]){
-            i--;
-        }
-        if(i >= 0){
-            int j = n-1;
-            while(j>=0 && nums[j] <= nums[i]){
-                j--;
-            }
-            swap(nums, i, j);
-        }
-        reverse(nums, i+1, n-1);
-    }
 
-    private void swap(int[] nums, int i, int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
+        // Step 1: Find the break point
+        int idx = -1; // index of break point
+        for(int i=n-2; i>=0; i--){
+            if(nums[i] < nums[i+1]){
+                idx = i;
+                break;
+            }
+        }
+
+        // If break point not exists then reverse the array
+        if(idx == -1){
+            reverse(nums, 0, n-1);
+            return;
+        }
+
+        // Step 2: Find the next greater element and swap it with break point nums[idx]
+        for(int i=n-1; i>idx; i--){
+            if(nums[i] > nums[idx]){
+                swap(nums, i, idx);
+                break;
+            }
+        }
+
+        // Step 3: Reverse the righthalf of array from idx+1 to n-1
+        reverse(nums, idx+1, n-1);
     }
 
     private void reverse(int[] nums, int start, int end){
@@ -113,6 +121,12 @@ public class ProblemsOnArray1 {
             start++;
             end--;
         }
+    }
+
+    private void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 
 
