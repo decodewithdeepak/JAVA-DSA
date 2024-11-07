@@ -4,6 +4,7 @@
 // 1. Enqueue - Add an element to the end of the queue - add(), offer()
 // 2. Dequeue - Remove an element from the front of the queue - remove(), poll()
 // 3. Peek - Get the front element of the queue - peek()
+// 
 
 // 4. isEmpty - Check if the queue is empty
 // 5. isFull - Check if the queue is full - Not applicable for dynamic queue
