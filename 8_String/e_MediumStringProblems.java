@@ -7,6 +7,7 @@
 // 7. Count number of substrings (GFG) - [https://www.geeksforgeeks.org/problems/count-number-of-substrings4528/1]
 // 8. Longest Palindromic Substring (LeetCode 5) - [https://leetcode.com/problems/longest-palindromic-substring/]
 // 9. Sum of Beauty of All Substrings (LeetCode 1781) - [https://leetcode.com/problems/sum-of-beauty-of-all-substrings/]
+// 10. Decode String (LeetCode 394) - [https://leetcode.com/problems/decode-string/]
 
 
 import java.util.*;
@@ -70,15 +71,15 @@ public class e_MediumStringProblems {
     }
 
     public int getValue(char ch) {
-        switch (ch) {
-            case 'I': return 1;
-            case 'V': return 5;
-            case 'X': return 10;
-            case 'L': return 50;
-            case 'C': return 100;
-            case 'D': return 500;
-            default: return 1000; // case 'M'
-        }
+        return switch (ch) {
+            case 'I' -> 1;
+            case 'V' -> 5;
+            case 'X' -> 10;
+            case 'L' -> 50;
+            case 'C' -> 100;
+            case 'D' -> 500;
+            default -> 1000;
+        }; // case 'M'
     }
 
     // 5. Integer to Roman (LeetCode 12)
@@ -106,6 +107,54 @@ public class e_MediumStringProblems {
 
     // 9. Sum of Beauty of All Substrings (LeetCode 1781)
 
+    // 10. Decode String (LeetCode 394)
+    public String decodeString(String s) {
+        
+        // create two stacks to store the numbers and strings
+        Stack<Integer> numStack = new Stack<>();
+        Stack<String> strStack = new Stack<>();
+
+        StringBuilder str = new StringBuilder(); // to store the decoded string
+        int num = 0; // to store the number of repetitions
+
+        for (char c : s.toCharArray()) {
+            // 4 types of characters: digit, [, ], alphabet
+
+            // if digit
+            if (c >= '0' && c <= '9') { // Character.isDigit(c)
+                // update the number and handle multiple digits
+                num = num * 10 + c - '0'; // c - '0' converts char to int
+            } 
+
+            // if [
+            else if (c == '[') {
+                // push number and string to the stacks
+                numStack.push(num);
+                strStack.push(str.toString());
+                // reset the number and string
+                num = 0;
+                str = new StringBuilder();
+            }
+            // if ]
+            else if (c == ']') {
+                // pop the number and string from the stacks
+                int repeat = numStack.pop();
+                StringBuilder temp = new StringBuilder();
+                for (int i = 0; i < repeat; i++) {
+                    temp.append(str);
+                }
+                // append the repeated string to the previous string
+                str = new StringBuilder(strStack.pop() + temp);
+            } 
+            // if alphabet
+            else {
+                // append the alphabet to string
+                str.append(c);
+            }
+        }
+
+        return str.toString();
+    }
     
 
     

@@ -117,7 +117,6 @@ public class a_StringBasics {
 
 
 
-
         sc.close();
 
     }
