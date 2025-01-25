@@ -16,11 +16,15 @@ public class A {
         System.out.println(a1.val); // 10
 
         A a2 = new A();
-        System.out.println(a2); // A@5acf9800 - hashcode (memory address)
+        System.out.println(a2); // A@4617c264 - hashcode (memory address)
         System.out.println(a2.val); // 10
 
         // Checking if a1 and a2 are pointing to the same object
         System.out.println(a1 == a2); // false
+
+        // == vs equals()
+        // == checks if the references are pointing to the same object
+        // equals() checks if the values are equal between the objects
 
         // Mofying a2
         a2.val = 20;
@@ -41,13 +45,13 @@ public class A {
         System.out.println(a2.val); // 30
 
         // Deep Copy
-        A a3 = new A();
-        a3 = a2.clone(); // why not deep copy
-        a3.val = 40;
+        // A a3 = new A();
+        // a3 = a2.clone(); // why not deep copy
+        // a3.val = 40;
 
-        // Display method
-        // display(); // Error: Cannot make a static reference to the non-static method display() from the type A
-        a1.display(); // Hello
+        // // Display method
+        // // display(); // Error: Cannot make a static reference to the non-static method display() from the type A
+        // a1.display(); // Hello
         
 
     }

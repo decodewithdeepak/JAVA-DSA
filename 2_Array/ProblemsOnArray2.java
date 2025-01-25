@@ -94,6 +94,20 @@ public class ProblemsOnArray2 {
     // 4. Find the repeating and the missing number - GFG
 
     // 5. Count Inversions - GFG
+    public static int inversionCount(int arr[]) {
+        // Brute Force Approach - O(n^2)
+        int n = arr.length;
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] > arr[j]) count++;
+            }
+        }
+        return count;
+
+        // Optimized Approach - O(nlogn)
+        // return mergeSortAndCount(arr, 0, arr.length - 1);
+    }
 
     // 6. Reverse Pairs - LeetCode 493
     public int reversePairsBrute(int[] nums) {

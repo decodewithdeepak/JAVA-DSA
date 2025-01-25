@@ -21,8 +21,14 @@ public class MethodOverriding {
     }
 
     public static void main(String[] args) {
-        Animal a = new Dog();
-        a.sound(); // Calls the overriden sound method of Dog class
+        Animal a = new Animal();
+        a.sound(); // Animal makes a sound.
+
+        Dog d = new Dog();
+        d.sound(); // Dog barks.
+
+        Animal a1 = new Dog(); // Upcasting
+        a1.sound(); // Dog barks.
 
         // Method call is resolved at runtime.
     }
