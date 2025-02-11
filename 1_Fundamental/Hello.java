@@ -20,6 +20,9 @@ public class Hello {
 
         // Command to compile the code - javac Hello.java - Compiles the code and generates Hello.class file (bytecode) - javac is the java compiler
         // Command to run the code - java Hello - Runs the bytecode using JVM (Java Virtual Machine) - java is the java interpreter
+
+        // Sarting from Java 11, we can run the code using single command - java Hello.java
+        // This will compile the file in memory and run the code without generating the .class file
     }
 
 }

@@ -117,6 +117,22 @@ public class a_StringBasics {
 
 
 
+        // Conversion of String to other data types
+        // String to numbers (int, float, double, long)
+        String s3 = "123";
+        // int num = Integer.valueOf(s3);
+        int num = Integer.parseInt(s3);
+        System.out.println(num + 10); // 133
+
+        // String to char array
+        String s4 = "Hello";
+        char[] ch1 = s4.toCharArray();
+        for (char c : ch1) {
+            System.out.print(c + " ");
+        }
+        
+        
+
         sc.close();
 
     }
