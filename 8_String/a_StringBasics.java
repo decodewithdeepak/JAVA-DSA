@@ -130,8 +130,19 @@ public class a_StringBasics {
         for (char c : ch1) {
             System.out.print(c + " ");
         }
+
+
+        // number to string
+        int n = 123;
+        String s5 = String.valueOf(n);
+        System.out.println(s5 + 10); // 12310
+
+        // char array to string
+        char[] ch2 = {'a', 'b', 'c'};
+        String s6 = String.valueOf(ch2);
+        System.out.println(s6); // abc
         
-        
+    
 
         sc.close();
 

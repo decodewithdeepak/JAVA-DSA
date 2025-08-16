@@ -15,35 +15,32 @@
 // 15. Trim a BST - Leetcode 669 (https://leetcode.com/problems/trim-a-binary-search-tree/)
 // 16. Recover BST - Leetcode 99 (https://leetcode.com/problems/recover-binary-search-tree/)
 
-
 public class h_BSTProblems {
 
-    // Node class of a binary tree (BST)
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-
-        TreeNode (int data) {
-            this.val = data;
-            left = right = null;
-        }
-    }
+    // Use TreeNode class from TreeNode.java
 
     // 1. Search in BST - Leetcode 700
     public TreeNode searchBST(TreeNode root, int val) {
-        if (root == null) return null;
+        if (root == null)
+            return null;
 
-        if (val == root.val) return root;
-        else if (val < root.val) return searchBST(root.left, val); // search in left subtree
-        else return searchBST(root.right, val); // search in right subtree
+        if (val == root.val)
+            return root;
+        else if (val < root.val)
+            return searchBST(root.left, val); // search in left subtree
+        else
+            return searchBST(root.right, val); // search in right subtree
     }
 
     // 2. Insert in BST - Leetcode 701
     public TreeNode insertIntoBST(TreeNode root, int val) {
-        if (root == null) return new TreeNode(val);
+        if (root == null)
+            return new TreeNode(val);
 
-        if (val < root.val) root.left = insertIntoBST(root.left, val); // insert in left subtree
-        else root.right = insertIntoBST(root.right, val); // insert in right subtree
+        if (val < root.val)
+            root.left = insertIntoBST(root.left, val); // insert in left subtree
+        else
+            root.right = insertIntoBST(root.right, val); // insert in right subtree
 
         return root;
     }
@@ -51,47 +48,54 @@ public class h_BSTProblems {
     // 3. Delete in BST - Leetcode 450
     public TreeNode deleteNode(TreeNode root, int key) {
         // Three cases - O child, 1 child, 2 child
-        if (root == null) return null;
+        if (root == null)
+            return null;
 
-        if (key < root.val) root.left = deleteNode(root.left, key); // search in left subtree
-        else if (key > root.val) root.right = deleteNode(root.right, key); // search in right subtree
+        if (key < root.val)
+            root.left = deleteNode(root.left, key); // search in left subtree
+        else if (key > root.val)
+            root.right = deleteNode(root.right, key); // search in right subtree
         else { // key == root.val - found the node to delete
 
             // 0 child (leaf node)
-            if (root.left == null && root.right == null) return null;
-            
+            if (root.left == null && root.right == null)
+                return null;
+
             // 1 child
-            if (root.left == null) return root.right;
-            else if (root.right == null) return root.left;
-            
+            if (root.left == null)
+                return root.right;
+            else if (root.right == null)
+                return root.left;
+
             // 2 child
             TreeNode min = root.right; // minimum value in right subtree (inorder successor)
-            while(min.left!=null) min = min.left;
+            while (min.left != null)
+                min = min.left;
             root.val = min.val;
-            root.right = deleteNode(root.right,min.val);
+            root.right = deleteNode(root.right, min.val);
         }
 
         return root;
     }
-    
-    // 4. Validate BST - Leetcode 98
 
+    // 4. Validate BST - Leetcode 98
 
     // Convert Sorted Array to Binary Search Tree - Leetcode 108
     public TreeNode sortedArrayToBST(int[] nums) {
-        return sortedArrayToBST(nums, 0, nums.length-1);
+        return sortedArrayToBST(nums, 0, nums.length - 1);
     }
 
     public TreeNode sortedArrayToBST(int[] nums, int l, int r) {
-        if (l > r) return null;
+        if (l > r)
+            return null;
 
         int mid = (l + r) / 2;
         TreeNode root = new TreeNode(nums[mid]);
 
-        root.left = sortedArrayToBST(nums, l, mid-1);
-        root.right = sortedArrayToBST(nums, mid+1, r);
+        root.left = sortedArrayToBST(nums, l, mid - 1);
+        root.right = sortedArrayToBST(nums, mid + 1, r);
 
         return root;
     }
-    
+
 }

@@ -41,6 +41,43 @@ public class PrintPatternAlphabet {
         }
     }
 
+    static void printPyramidAlphabeticPattern3(int n) {
+        for (int i = 0; i < n; i++) {
+            char ch = (char) ('E' - i);
+            for (int j = 0; j <= i; j++) {
+                System.out.print(ch + " ");
+                ch++;
+            }
+            System.out.println();
+        }
+    }    
+
+    static void printPyramidAlphabeticPattern4(int n) {
+        char ch = 'a';
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(ch + " ");
+                ch = (ch >= 'a' && ch <= 'z') ? (char) (ch - 31) : (char) (ch + 33);
+            }
+            System.out.println();
+        }
+    }    
+
+    static void printPyramidAlphabeticPattern5(int n) {
+        for (int i = 0; i < n; i++) {
+            char ch = (char) ('A' + n - i - 1);
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(ch + " ");
+                ch--;
+            }
+            System.out.println();
+        }
+    }    
+
+    static void printPyramidAlphabeticPattern6(int n) {
+
+    }    
+
     public static void main(String[] args) {
         
         // Alphabetic Pattern - Character
@@ -76,24 +113,38 @@ public class PrintPatternAlphabet {
         printPyramidAlphabeticPattern2(4);
 
 
-                
+        System.out.println("\nPyramid Alphabetic Pattern 3");        
         // E
         // D E
         // C D E
         // B C D E
         // A B C D E
+        printPyramidAlphabeticPattern3(5);
 
+        System.out.println("\nPyramid Alphabetic Pattern 4");
         // a
         // B c
         // D e F
         // g H i J
         // k L m N o
+        printPyramidAlphabeticPattern4(5);
 
+        System.out.println("\nPyramid Alphabetic Pattern 5");
         // E D C B A
         // D C B A
         // C B A
         // B A
         // A
+        printPyramidAlphabeticPattern5(5);
+
+        System.out.println("\nPyramid Alphabetic Pattern 6");
+        // A B C D E F G
+        // A B C   E F G
+        // A B       F G
+        // A           G
+        printPyramidAlphabeticPattern6(4);
+
+        
 
 
 
